@@ -1,0 +1,409 @@
+/* AURA Training — versión mobile.
+   Minimalista y corta: lo que en desktop va una al lado de otra, acá se desliza de costado (carriles con contador).
+   Hero a pantalla completa con el texto encima (ref carolinegirvan.com). */
+
+[hidden]{display:none!important}
+.rail-ui,.hc-play,.about-more{display:none}
+
+@media (max-width:760px){
+  /* ---------- ritmo general ---------- */
+  .ident,.method,.stages,.finder,.how,.free,.about,.proc,.reviews,.faq,.plans,.online{padding-block:56px}
+  .plans{padding-bottom:40px}
+  .sec-head,.plans-head{margin-bottom:22px}
+  .sec-head .eyebrow,.plans-head .eyebrow{margin-bottom:12px}
+  .sec-head.two .lead,.plans-head .side{display:none}
+  .h2{font-size:calc(clamp(32px,9.4vw,40px) * var(--ds))}
+  .lead{font-size:16px}
+
+  /* ---------- carril horizontal con contador ---------- */
+  [data-rail]{display:flex!important;flex-direction:row!important;gap:12px;overflow-x:auto;overflow-y:visible;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);margin-inline:calc(-1 * var(--gutter));padding:0 var(--gutter) 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;height:auto!important;min-height:0!important}
+  [data-rail]::-webkit-scrollbar{display:none}
+  [data-rail] > *{flex:0 0 86%;scroll-snap-align:start;min-width:0}
+  .rail-ui{display:flex;align-items:center;gap:14px;margin-top:16px}
+  .rail-ui .bar{position:relative;flex:1;height:2px;background:var(--line);overflow:hidden}
+  .rail-ui .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--violet);transition:transform .3s var(--ease)}
+  .rail-ui .n{font:600 12px/1 var(--sans);letter-spacing:.12em;color:var(--graphite);min-width:42px;text-align:right}
+  .rail-ui button{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;color:var(--ink)}
+  .rail-ui button svg{width:16px;height:16px}
+  .rail-ui button:disabled{opacity:.35}
+
+  /* ---------- HERO: foto a pantalla completa, texto encima, "Ver video" en la esquina ---------- */
+  .hero{position:relative;padding:0!important;height:calc(100svh - var(--nav));min-height:560px;max-height:860px}
+  .hero-grid{display:block!important;height:100%;padding:0!important;max-width:none}
+  .hero-card{position:absolute!important;inset:0;height:100%!important;min-height:0!important;aspect-ratio:auto!important}
+  .hero-card .still{object-position:62% 28%}
+  .hero-card .shade{background:linear-gradient(180deg,rgba(21,18,28,.15) 0%,rgba(21,18,28,0) 30%,rgba(21,18,28,.25) 48%,rgba(21,18,28,.86) 100%)}
+  .hc-top,.hc-bottom{display:none}
+  .hc-play{display:inline-flex;position:absolute;z-index:4;top:14px;right:14px;align-items:center;gap:8px;height:38px;padding:0 14px 0 12px;border:1px solid rgba(255,255,255,.7);border-radius:999px;background:rgba(21,18,28,.28);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+  .hc-play svg{width:14px;height:14px}
+  .hero-copy{position:absolute;z-index:3;left:var(--gutter);right:var(--gutter);bottom:calc(22px + env(safe-area-inset-bottom,0px));color:#fff}
+  .hero .eyebrow{color:var(--lila-200);font-size:10.5px;margin-bottom:12px}
+  .hero h1{color:#fff;font-size:calc(clamp(34px,10vw,44px) * var(--ds))}
+  .hero h1 .acc{color:var(--lila-200)}
+  .hero h1 .acc path{stroke:var(--lila-200)}
+  .hero .sub{color:rgba(255,255,255,.85);font-size:calc(17px * var(--ds));margin-top:14px}
+  .hero .lead{display:none}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:14px;margin-top:22px}
+  .hero-actions .btn{background:#fff;color:var(--violet);width:100%;height:52px}
+  .hero-actions .link{color:#fff;align-self:flex-start}
+  .hero-tags{display:none}
+
+  /* ---------- PLANES: título más grande, cards en carril ---------- */
+  .plans-head .h2{font-size:calc(clamp(38px,11.5vw,48px) * var(--ds))}
+  .stack{margin-bottom:0;align-items:flex-start}
+  .pcard{position:relative!important;top:auto!important;transform:none!important;filter:none!important;margin:0!important;height:auto!important;display:flex;flex-direction:column}
+  .pcard .body{padding:22px 20px;gap:12px;height:100%}
+  .pcard .d{display:none}
+  .pcard .name small{margin-bottom:4px}
+  .pcard .name h3{font-size:calc(48px * var(--ds))}
+  .pcard .what{font-size:15.5px}
+  .pcard .acts{flex-direction:column;align-items:stretch;gap:12px}
+  .pcard .acts .link{align-self:flex-start}
+  .plans-foot{margin-top:24px;padding-top:16px}
+  .plans-foot p{font-size:14.5px}
+
+  /* ---------- ONLINE: lista sin textos flotando ---------- */
+  .online .lead{margin-top:14px}
+  .online ul{margin:22px 0 24px}
+  .online li{display:block;padding:12px 0;font-size:15px}
+  .online li span{display:block;text-align:left;font-size:13.5px;margin-top:2px}
+  .stage{height:390px}
+  .note{display:none}
+
+  /* ---------- IDENTIFICACIÓN: se ven 2 frases y se va bajando dentro de la caja (skiper41) ---------- */
+  .ident-head{margin-bottom:6px}
+  .ident-wrap{position:relative}
+  .ident-list{height:156px;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;overscroll-behavior:contain;-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent)}
+  .ident-list::-webkit-scrollbar{display:none}
+  .ident-wrap.at-top .ident-list{-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+  .ident-wrap.at-end .ident-list{-webkit-mask-image:linear-gradient(transparent,#000 22%);mask-image:linear-gradient(transparent,#000 22%)}
+  .ident-list li{font-size:calc(25px * var(--ds));padding:14px 0;color:var(--ink)!important;scroll-snap-align:start;border-bottom:1px solid rgba(21,18,28,.1)}
+  .ident-list li.acc{color:var(--violet)!important}
+  .ident-wrap::after{content:"Deslizá";display:block;margin-top:10px;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+  .ident-end{margin-top:30px;gap:10px}
+  .ident-end h3{font-size:calc(28px * var(--ds))}
+
+  /* ---------- MÉTODO: como el desktop pero horizontal (letra grande en cada card + pestañas) ---------- */
+  .method-grid{display:block}
+  .method-side{display:block!important;position:static}
+  .method-giant{display:none}
+  .method-idx{flex-direction:row;justify-content:space-between;padding:0 0 14px;gap:6px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .method-idx li{flex:1;cursor:pointer;padding:4px 0}
+  .method-idx b{font-size:calc(26px * var(--ds))}
+  .method-blocks{padding-bottom:0!important;align-items:flex-start}
+  .mb{position:relative;min-height:0!important;justify-content:flex-start;gap:8px;padding:18px 18px 18px;background:var(--surface);overflow:hidden}
+  .mb::before{content:attr(data-l);position:absolute;right:10px;top:-14px;font:400 calc(120px * var(--ds))/1 var(--display);font-weight:var(--dw);color:var(--lila-200);opacity:.7;pointer-events:none;z-index:0}
+  .mb > *{position:relative;z-index:1}
+  .mb > p:not(.mb-l){font-size:15px}
+  .mb h3{font-size:calc(27px * var(--ds));max-width:9em}
+  .mb figure{aspect-ratio:16/10;margin-top:6px}
+  .mb figure.mb-data{grid-template-columns:1fr;gap:10px;padding:16px;background:#fff}
+
+  /* ---------- ETAPAS: cards verticales compactas con "+", se abre de a una ---------- */
+  .panels{gap:8px}
+  .panel{min-height:0;padding:16px 56px 16px 18px}
+  .panel::after{content:"";position:absolute;right:16px;top:14px;width:28px;height:28px;border-radius:50%;border:1px solid var(--ink);background:linear-gradient(currentColor,currentColor) center/11px 1.5px no-repeat,linear-gradient(currentColor,currentColor) center/1.5px 11px no-repeat;transition:transform .35s var(--ease),background-color .25s}
+  .panel.on::after{transform:rotate(45deg);background-color:var(--violet);border-color:var(--violet);color:#fff}
+  .panel .pv{font-size:calc(19px * var(--ds));line-height:1.6}
+  .panel .pn{display:none}
+  .panel .pc h3{font-size:calc(26px * var(--ds))}
+  .panel .pc{gap:10px}
+  .blur-list{max-height:170px}
+  .stages-note{font-size:14.5px;margin-top:18px}
+
+  /* ---------- ENCONTRÁ TU AURA: con fondo para que se note que hay que completarlo ---------- */
+  .finder{background:var(--violet);color:#fff}
+  .finder .eyebrow{color:var(--lila-200)}
+  .finder .h2 em{color:var(--lila-200)}
+  .finder-head .finder-meta{margin-top:10px;font-size:14.5px;color:rgba(255,255,255,.8)}
+  .finder-box{padding:20px 18px;min-height:0;background:#fff;color:var(--ink);border:0;box-shadow:0 20px 50px rgba(21,18,28,.25)}
+  .finder-grid{gap:22px}
+  .fq h3{font-size:calc(24px * var(--ds));margin-bottom:6px}
+  .finder-box .opt{min-height:50px;padding:12px 16px;font-size:15px}
+
+  /* ---------- CÓMO FUNCIONA: carril de tarjetas ---------- */
+  .how-line{display:none}
+  .js .steps li{opacity:1!important;transform:none!important}
+  .steps li{margin:0!important;padding:20px;background:var(--surface);box-shadow:none;border-top:2px solid var(--violet);gap:8px}
+  .steps[data-rail] > li{flex:0 0 74%}
+  .sn{font-size:13px}
+  .steps h3{font-size:calc(24px * var(--ds))}
+  .steps p{font-size:15px}
+
+  /* ---------- VIDEO ---------- */
+  .vframe{aspect-ratio:1/1}
+  .vcap{padding:12px 14px}
+
+  /* ---------- GRATIS: carril de cards más chicas ---------- */
+  .fcards[data-rail] > *{flex:0 0 72%}
+  .fcard{aspect-ratio:3/4}
+  .fc-top,.fc-bot{left:16px;right:16px}
+  .fc-top{top:16px}
+  .fc-bot{bottom:16px;gap:10px}
+  .fc-bot b{font-size:calc(30px * var(--ds))}
+  .fc-meta{display:none}
+  .fc-cta{font-size:11.5px}
+  .fc-cta i{width:40px;height:40px}
+
+  /* ---------- SOBRE MÍ: corto y limpio; fotos en una tira horizontal ---------- */
+  .about-grid{gap:22px}
+  .about-txt{gap:14px}
+  .about-txt p.first{font-size:17px}
+  .about-txt p:not(.eyebrow):not(.first){display:none;font-size:15px}
+  .about-txt.open p:not(.eyebrow):not(.first){display:block}
+  .about-more{display:inline-flex;align-self:flex-start}
+  .gallery{height:auto!important;display:flex;flex-direction:row;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--gutter));padding:0 var(--gutter);scrollbar-width:none}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery::before,.gallery::after{display:none}
+  .gcol{display:contents!important}
+  .gcol img{flex:none;width:40%;min-width:0;max-width:40%;height:auto;aspect-ratio:3/4;scroll-snap-align:start}
+  .gcol:nth-child(3) img:nth-child(3),.gcol:nth-child(3) img:nth-child(5),.gcol:nth-child(2) img:nth-child(5){display:none}
+  .edu{margin-top:40px;gap:14px}
+  .edu h3{font-size:calc(26px * var(--ds))}
+  .edu ul{display:block;border:0;font-size:0}
+  .edu li{display:inline;padding:0;border:0;font:500 15px/1.7 var(--sans);text-transform:none;letter-spacing:0;color:var(--graphite)}
+  .edu li:not(:last-child)::after{content:" · ";color:var(--violet);font-weight:700}
+
+  /* ---------- PROCESOS ---------- */
+  .proc .lead{margin-top:12px}
+  .draft-note{margin-top:12px;font-size:12.5px}
+  .cmp{aspect-ratio:1/1}
+  .cmp-hand{width:56px;height:56px}
+
+  /* ---------- RESEÑAS: carril; "Mejor hecho que perfecto" grande ocupando el fondo ---------- */
+  .rcol{display:contents}
+  .rcols .rev{flex:0 0 86%;scroll-snap-align:start}
+  .rev{padding:22px;gap:14px}
+  .rev blockquote{font-size:calc(19px * var(--ds))}
+  .crawl-in{width:100%}
+  .crawl-in p{font-size:calc(clamp(96px,30vw,130px) * var(--ds));white-space:normal;line-height:.88}
+  .reviews .sec-head{position:relative;z-index:2}
+
+  /* ---------- FAQ: carril de 2 filas ---------- */
+  .faq-list{display:grid;grid-template-rows:auto auto;grid-auto-flow:column;grid-auto-columns:78%;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(-1 * var(--gutter));padding:0 var(--gutter) 4px;border-top:0;scrollbar-width:none;align-items:start}
+  .faq-list::-webkit-scrollbar{display:none}
+  .faq details{border:1px solid var(--line);padding:0 16px;scroll-snap-align:start;min-height:96px;background:#fff}
+  .faq details[open]{border-color:var(--violet)}
+  .faq summary{padding:16px 0;font-size:calc(17px * var(--ds));gap:12px;align-items:flex-start}
+  .faq summary i{width:26px;height:26px;margin-top:-2px}
+  .faq details p{font-size:14.5px;padding:0 0 16px}
+  .faq-grid::after{content:"Deslizá para ver más preguntas";display:block;font:600 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--graphite);margin-top:-10px}
+
+  /* ---------- CTA FINAL Y FOOTER ---------- */
+  .final{padding-block:64px}
+  .final-l{margin-bottom:16px}
+  .final-h{font-size:calc(34px * var(--ds));margin-bottom:28px}
+  .final .btn{width:100%}
+  .foot-site{padding-top:36px;padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+  .fs-top{gap:18px}
+  .fs-top nav{gap:8px 18px}
+  .fs-contact{flex-direction:row;flex-wrap:wrap;gap:8px 18px}
+  .fs-big{margin:28px 0 16px;font-size:calc(40px * var(--ds))}
+  .fs-bottom{font-size:12px}
+}
+
+/* ===================== MOBILE v3: ajustes pedidos por Joaquín ===================== */
+@media (max-width:760px){
+  /* más aire entre secciones; cada sección aparece con un fade al llegar (ver main.js) */
+  .ident,.method,.stages,.finder,.how,.free,.about,.proc,.reviews,.faq,.plans,.online{padding-block:76px}
+
+  /* nav fija: la misma barra todo el tiempo, sin convertirse en cápsula */
+  .nav,.nav.solid{background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+  .nav.solid .wrap{max-width:var(--max);height:100%;margin:0 auto;padding-inline:var(--gutter);border-radius:0;background:none;box-shadow:none}
+  .nav.solid .brand{padding:0}
+  .nav.solid .brand img{height:30px}
+
+  /* planes: todas las cards del mismo alto */
+  .stack{align-items:stretch}
+  .pcard .d{display:block;font-size:14.5px}
+  .pcard .facts{margin-top:auto}
+
+  /* entrená donde estés: más corto */
+  .online ul,.online .link{display:none}
+  .online .lead{font-size:15px}
+  .stage{height:330px;margin-top:8px}
+
+  /* "el plan tiene que adaptarse a tu realidad" en bloque violeta */
+  .ident-end{display:block;margin:36px 0 -76px;padding:40px var(--gutter);background:var(--violet);color:#fff}
+  .ident-end h3{color:#fff;font-size:calc(30px * var(--ds))}
+  .ident-end h3 em{color:var(--lila-200)}
+  .ident-end .lead{color:rgba(255,255,255,.85);margin-top:12px}
+
+  /* método: cards minimalistas del mismo alto (letra + título + texto), sin fotos */
+  .method-idx{display:none}
+  .method-blocks{align-items:stretch}
+  .mb{background:#fff;border:1px solid var(--line);padding:22px 20px;gap:10px}
+  .mb::before{position:static;display:block;font-size:calc(72px * var(--ds));line-height:.85;color:var(--violet);opacity:1;margin-bottom:4px}
+  .mb figure{display:none!important}
+  .mb .mb-l{color:var(--graphite)}
+  .mb h3{font-size:calc(25px * var(--ds));max-width:none}
+
+  /* etapas: como desktop, columnas verticales del mismo alto; la tocada se abre */
+  .panels{flex-direction:row;height:460px;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;margin-inline:calc(-1 * var(--gutter));padding:0 var(--gutter);scrollbar-width:none}
+  .panels::-webkit-scrollbar{display:none}
+  .panel{flex:0 0 58px!important;min-height:0;padding:16px 10px;transition:flex-basis .55s var(--ease),background .3s;scroll-snap-align:start}
+  .panel.on{flex:0 0 80%!important;padding:20px 18px}
+  .panel::after{display:none}
+  .panel .pn{display:block}
+  .panel .pv{writing-mode:vertical-rl!important;transform:rotate(180deg)!important;font-size:calc(18px * var(--ds));align-self:center}
+  .panel.on .pv{display:none}
+  .panel .pc{overflow-y:auto;scrollbar-width:none;max-height:100%}
+  .panel:not(.on)::before{content:"+";position:absolute;left:50%;bottom:14px;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;border:1px solid var(--ink);display:grid;place-items:center;font:400 18px/1 var(--sans)}
+
+  /* sobre mí: los botones van al final de la sección; formación más chica */
+  .about-grid{display:flex;flex-direction:column}
+  .about-txt{display:contents}
+  .about-txt .eyebrow{order:1}.about-txt h2{order:2}.about-txt p{order:3}.about-more{order:4}
+  .gallery{order:5}
+  .about-acts{order:6;margin-top:6px}
+  .edu{margin-top:36px}
+  .edu h3{font-size:calc(21px * var(--ds))}
+  .edu li{font-size:13.5px}
+
+  /* preguntas: cards chicas apiladas de a 4; se desliza de a 4 */
+  .faq-list{grid-template-rows:repeat(4,auto);grid-auto-columns:88%;gap:8px}
+  .faq details{min-height:0;padding:0 14px}
+  .faq summary{padding:13px 0;font-size:calc(15.5px * var(--ds))}
+  .faq summary i{width:24px;height:24px}
+  .faq-grid::after{content:"Deslizá para ver más"}
+
+  /* footer: logo centrado y redes, nada más */
+  .fs-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+  .fs-top nav,.fs-big{display:none}
+  .fs-contact{justify-content:center;align-items:center}
+  .fs-bottom{border-top:0;padding-top:8px}
+}
+
+/* menú mobile con animación: entra deslizando y los links aparecen escalonados */
+.menu{display:flex;visibility:hidden;opacity:0;transform:translateY(-14px);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s linear .45s}
+.menu.open{visibility:visible;opacity:1;transform:none;transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s}
+.menu > a,.menu > .btn{opacity:0;transform:translateY(18px);transition:opacity .4s var(--ease),transform .5s var(--ease)}
+.menu.open > a,.menu.open > .btn{opacity:1;transform:none}
+.menu.open > :nth-child(2){transition-delay:.06s}.menu.open > :nth-child(3){transition-delay:.11s}.menu.open > :nth-child(4){transition-delay:.16s}
+.menu.open > :nth-child(5){transition-delay:.21s}.menu.open > :nth-child(6){transition-delay:.26s}.menu.open > :nth-child(7){transition-delay:.31s}
+@media (prefers-reduced-motion:reduce){.menu,.menu > *{transition:none!important}}
+@media (max-width:760px){
+  /* celulares de "Online" más chicos para que entren en la caja sin pisar el texto */
+  .phone.back{width:40%;left:6%;top:2%}
+  .phone.front{width:42%;right:6%;bottom:2%}
+  /* etapas: el "+" arriba, debajo del número, para no pisar el título vertical */
+  .panel:not(.on)::before{top:44px;bottom:auto}
+  .panel .pv{align-self:center;margin-top:auto}
+  /* sobre mí alineado a la izquierda */
+  .about-grid{align-items:stretch;text-align:left}
+  .about-acts{justify-content:flex-start}
+}
+
+/* ===================== MOBILE v4: ideas de integratedbio.com ===================== */
+@media (max-width:760px){
+  /* carriles: que el snap respete el margen izquierdo (antes las cards quedaban pegadas al borde) */
+  [data-rail],.faq-list,.gallery,.panels{scroll-padding-inline:var(--gutter)}
+
+  /* nav flotante: panel blanco redondeado fijo sobre todo, menú en un cuadrado violeta */
+  html{scroll-padding-top:84px}
+  .nav,.nav.solid{position:fixed;top:8px;left:8px;right:8px;height:60px;border-radius:16px;background:rgba(255,255,255,.84);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 2px rgba(21,18,28,.06),0 10px 30px -12px rgba(21,18,28,.25)}
+  .nav .wrap,.nav.solid .wrap{padding-inline:14px 8px}
+  .burger{width:44px;height:44px;padding:0;justify-content:center;border-radius:12px;background:var(--violet);color:#fff;font-size:0;gap:0}
+  .burger i::before,.burger i::after{width:18px;background:#fff}
+  main{padding-top:0}
+
+  /* hero: tarjeta redondeada con margen, la nav flota encima */
+  .hero{height:100svh!important;max-height:none;padding:8px!important}
+  .hero-card{inset:8px!important;border-radius:20px;height:auto!important}
+  .hero-copy{left:28px;right:28px;bottom:calc(30px + env(safe-area-inset-bottom,0px))}
+  .hc-play{top:84px;right:20px}
+
+  /* etiquetas: estilo unificado con desktop (estrella del logo), ver sections.css */
+  .eyebrow{font-size:10.5px}
+
+  /* botones: la flecha en su propio cuadrado pegado */
+  .btn{border-radius:12px}
+  .btn svg{box-sizing:content-box;width:16px;height:16px;padding:10px;margin-right:-18px;border-radius:9px;background:var(--lila-200);color:var(--ink)}
+  .btn-w svg,.hero-actions .btn svg{background:var(--violet);color:#fff}
+  .btn:hover svg{transform:none}
+
+  /* fotos y cards con esquinas suaves, como la referencia */
+  .pcard,.fcard,.vframe,.mb,.rev,.steps li,.finder-box,.cmp,.stage .phone,.gallery img,.panel,.faq details{border-radius:16px}
+  .pcard .media,.fcard img,.fcard video{border-radius:inherit}
+
+  /* contador de carriles en pill "01 / 04" */
+  .rail-ui .n{order:-1;padding:8px 12px;border:1px solid var(--line);border-radius:999px;font-family:ui-monospace,"Roboto Mono",Menlo,monospace;font-size:12px;min-width:0}
+
+  /* títulos: cada palabra se destapa con un bloque de color al llegar (ver main.js) */
+  .mw{position:relative;display:inline-block}
+  .mw::after{content:"";position:absolute;left:-.03em;right:-.03em;top:.08em;bottom:.04em;background:currentColor;transform-origin:100% 50%;transform:scaleX(1);transition:transform .7s cubic-bezier(.77,0,.18,1);transition-delay:var(--md,0ms)}
+  .mreveal.in .mw::after{transform:scaleX(0)}
+  .js .h2.mreveal[data-reveal]{opacity:1;transform:none}
+
+  /* párrafos que se van "llenando" palabra por palabra con el scroll */
+  [data-fill] .fw{opacity:.22;transition:opacity .25s linear}
+  [data-fill] .fw.on{opacity:1}
+
+  /* método: bloques de color apilados (como "Aging datasets / Drug design / AI") */
+  .method-blocks{display:flex;flex-direction:column;gap:0;counter-reset:mb;margin-inline:calc(-1 * var(--gutter))}
+  .mb{border:0;border-radius:0;min-height:236px!important;padding:22px var(--gutter) 24px;justify-content:space-between;gap:6px;counter-increment:mb}
+  .mb:nth-child(1){background:var(--lila-200)}
+  .mb:nth-child(2){background:var(--violet);color:#fff}
+  .mb:nth-child(3){background:var(--lila-100)}
+  .mb:nth-child(4){background:#e2d8fb}
+  .mb::before{font-size:calc(64px * var(--ds));color:inherit;opacity:.9;margin-bottom:auto}
+  .mb::after{content:"0" counter(mb) ".";position:absolute;top:24px;right:var(--gutter);font:500 12px/1 ui-monospace,"Roboto Mono",Menlo,monospace}
+  .mb .mb-l{display:none}
+  .mb h3 em{color:inherit}
+  .mb:nth-child(2) > p:not(.mb-l){color:rgba(255,255,255,.85)}
+  .method-blocks + .rail-ui{display:none}
+
+  /* "entrenar también es entender el cuerpo" fuera en mobile */
+  .edu{display:none}
+}
+@media (max-width:760px){
+  /* hero centrado, sin la etiqueta de arriba y con textos más chicos */
+  .hero .eyebrow{display:none}
+  .hero-copy{text-align:center}
+  .hero h1{font-size:calc(clamp(30px,8.6vw,36px) * var(--ds))}
+  .hero h1 .acc svg{left:4%;width:92%}
+  .hero .sub{font-size:calc(15.5px * var(--ds));margin-top:10px}
+  .hero-actions{align-items:center;margin-top:20px}
+  .hero-actions .btn{height:48px;font-size:14.5px}
+  .hero-actions .link{align-self:center;font-size:12px}
+
+  /* planes: "Recomendado" / "Experiencia premium" cuelgan del borde superior y no empujan nada:
+     todas las cards tienen el mismo espacio arriba, así los títulos quedan a la misma altura */
+  .pcard .body{padding-top:40px}
+  .pcard .top{flex-wrap:nowrap}
+  .pcard .meter span{font-size:10.5px;white-space:nowrap}
+  .pcard .tag{position:absolute;top:0;right:18px;height:26px;padding:0 10px;font-size:10px;border-radius:0 0 8px 8px}
+}
+@media (max-width:760px){
+  /* celulares: la pantalla de "Tu progreso" y la del video escaladas al tamaño chico del teléfono */
+  .phone{border-width:5px;border-radius:24px}
+  .phone::before{top:6px;width:42px;height:11px}
+  .prog{padding:30px 11px 12px}
+  .prog small{font-size:7px;letter-spacing:.1em}
+  .prog strong{font-size:calc(16px * var(--ds));margin-top:4px}
+  .ring{width:78%;margin:auto auto 6px}
+  .ring circle{stroke-width:10}
+  .ring b{font-size:calc(19px * var(--ds))}
+  .prog .wk{gap:2px}
+  .prog .wk i{height:12px}
+  .prog p{font-size:7.5px;margin-top:6px;line-height:1.3}
+  .workout{padding:48px 11px 12px;gap:3px}
+  .workout small{font-size:7px}
+  .workout strong{font-size:calc(15px * var(--ds))}
+  .workout span{font-size:8px}
+}
+@media (max-width:760px){
+  /* preguntas: todas las cards del mismo alto (antes dependía de si la pregunta ocupaba 1 o 2 líneas) */
+  .faq-list{align-items:stretch;grid-auto-rows:auto}
+  .faq details{min-height:68px}
+  .faq summary{min-height:66px;padding:12px 0;align-items:center}
+  .faq summary i{margin-top:0}
+}
+@media (max-width:760px){
+  /* card de plan: el CTA secundario (prueba/rutina gratis) centrado y con aire, sin pegarse al botón */
+  .pcard .facts{padding-bottom:18px}
+  .pcard .acts{gap:16px;padding-top:2px}
+  .pcard .acts .btn{height:52px}
+  .pcard .acts .link{align-self:center;border-bottom:0;padding:4px 0;font-size:11.5px;letter-spacing:.12em;color:var(--graphite);text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+  .pcard.el .acts .link{color:rgba(255,255,255,.85)}
+}

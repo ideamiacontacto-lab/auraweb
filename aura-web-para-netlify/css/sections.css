@@ -1,0 +1,702 @@
+/* AURA Training — secciones 3 a 15 + tipografías + nav compacta.
+   Se carga después de styles.css. */
+
+/* ============ TIPOGRAFÍA DE TITULARES (?font=) ============
+   grotesk (default): sans tipo Helvetica/SF, en minúscula y apretada (refs: fourmula.ai, accessgrid.com)
+   josefin: geométrica y más delicada, en mayúscula
+   bogle: la versión anterior (BBH Bogle, mayúscula) */
+html[data-font="grotesk"]{--display:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;--dw:500;--dls:-.032em;--dlh:1;--ds:.96;--dtt:none}
+.pcard .name h3{padding-top:.1em}
+html[data-font="josefin"]{--display:"Josefin Sans","Futura","Century Gothic",sans-serif;--dw:400;--dls:.01em;--dlh:1.04;--ds:.72;--dtt:uppercase}
+.hero .sub,.hc-name,.hc-slogan,.prog strong,.ring b,.workout strong,.menu a:not(.btn):not(.brand),.ident-list li,.crawl-in p,.method-giant span,.method-idx b,.tline b,.edu li,.fc-bot b,.vcap b,.faq summary,.rev blockquote,.mb-data b,.fs-big{font-weight:var(--dw)}
+html[data-font="grotesk"] .hero .sub{letter-spacing:-.025em}
+html[data-font="grotesk"] .hc-name,html[data-font="grotesk"] .workout strong,html[data-font="grotesk"] .prog strong{letter-spacing:-.03em}
+
+/* ============ NAV: al bajar se vuelve una cápsula compacta y centrada (ref: accessgrid.com) ============ */
+.nav{transition:none}
+.nav .wrap{transition:max-width .5s var(--ease),height .5s var(--ease),padding .5s var(--ease),margin-top .5s var(--ease),background .4s,box-shadow .4s,border-radius .5s var(--ease)}
+.nav.solid{background:none;backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none}
+.nav.solid .wrap{max-width:780px;height:58px;margin-top:12px;padding-inline:8px 6px;border-radius:16px;background:rgba(246,244,249,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 1px rgba(21,18,28,.06),0 10px 30px -10px rgba(21,18,28,.18),inset 0 0 0 1px rgba(255,255,255,.7)}
+.nav.solid .brand{padding:0 10px}
+.nav.solid .brand img{height:28px}
+.nav.solid .links{gap:22px}
+.nav.solid .links a{font-size:14px}
+.nav.solid .btn{height:44px;border-radius:11px;padding:0 16px;font-size:13.5px;background:var(--violet)}
+.nav.solid .btn:hover{background:var(--violet-deep)}
+@media (max-width:1000px){.nav.solid .wrap{max-width:calc(100% - 16px);margin-inline:8px}}
+
+/* HERO v2: titular más chico, foto más alta y más grande (arranca arriba, ocupa casi toda la pantalla) */
+.hero{padding-top:12px;padding-bottom:clamp(40px,5vw,72px)}
+.hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:clamp(32px,4vw,72px)}
+.hero h1{font-size:calc(clamp(38px,4.9vw,76px) * var(--ds))}
+.hero-card{aspect-ratio:auto;height:min(calc(100svh - var(--nav) - 36px),780px);min-height:520px}
+@media (max-width:760px){.hero{padding-top:16px}.hero-grid{grid-template-columns:1fr}.hero-card{height:auto;min-height:0;aspect-ratio:4/5}.hero h1{font-size:calc(clamp(34px,10.5vw,52px) * var(--ds))}}
+
+/* secciones: aire común */
+.ident,.method,.stages,.finder,.how,.free,.about,.proc,.reviews,.faq{padding-block:clamp(80px,10vw,150px)}
+.sec-head{margin-bottom:clamp(40px,5vw,72px);max-width:62rem}
+.sec-head .eyebrow{margin-bottom:22px}
+.sec-head.two{max-width:none;display:grid;grid-template-columns:minmax(0,8fr) minmax(0,4fr);gap:24px 56px;align-items:end}
+
+/* ============ IDENTIFICACIÓN: las frases se encienden al scrollear ============ */
+.ident{background:var(--lila-100)}
+.ident-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:start}
+.ident-head{position:sticky;top:calc(var(--nav) + 40px)}
+.ident-head .eyebrow{margin-bottom:22px}
+.ident-list{list-style:none;margin:0;padding:0}
+.ident-list li{font:400 calc(clamp(28px,3.4vw,52px) * var(--ds))/1.05 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls);padding:clamp(16px,2vw,26px) 0;border-bottom:1px solid rgba(21,18,28,.14);color:rgba(21,18,28,.2);transition:color .5s var(--ease)}
+.ident-list li.lit{color:var(--ink)}
+.ident-list li.acc.lit{color:var(--violet)}
+.ident-end{margin-top:clamp(56px,7vw,110px);display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px 56px;align-items:end}
+.ident-end h3{font-size:calc(clamp(34px,4.2vw,64px) * var(--ds))}
+
+/* ============ MÉTODO: sticky con índice (ref: emilyskyefit.com) ============ */
+.method-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,110px)}
+.method-side{position:sticky;top:calc(var(--nav) + 40px);align-self:start;display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,3vw,48px);align-items:start}
+.method-idx{list-style:none;margin:0;padding:12px 0 0;display:flex;flex-direction:column;gap:20px}
+.method-idx li{display:flex;flex-direction:column;align-items:center;gap:6px;font:600 10.5px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#b9b2c7;transition:color .3s}
+.method-idx b{font:400 calc(26px * var(--ds))/1 var(--display);color:inherit}
+.method-idx li.on{color:var(--ink)}.method-idx li.on b{color:var(--violet)}
+/* letra gigante como tira de tragamonedas: baja A → U → R → A siguiendo el scroll */
+.method-giant{--mp:0;position:relative;font-size:calc(clamp(240px,30vw,440px) * var(--ds));height:.8em;overflow:hidden}
+.giant-strip{transform:translate3d(0,calc(var(--mp) * -.8em),0);will-change:transform}
+.giant-strip span{display:block;height:.8em;font:400 1em/.8 var(--display);font-weight:var(--dw);color:var(--lila-200);text-transform:uppercase;letter-spacing:var(--dls)}
+.method-blocks{display:flex;flex-direction:column;gap:clamp(80px,12vh,160px);padding-bottom:10vh}
+.mb{display:flex;flex-direction:column;gap:16px;min-height:62vh;justify-content:center}
+.mb-l{font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--violet)}
+.mb h3{font-size:calc(clamp(34px,3.8vw,58px) * var(--ds))}
+.mb > p:not(.mb-l){color:var(--graphite);font-size:18px;max-width:32em}
+.mb figure{margin:10px 0 0;aspect-ratio:16/10;overflow:hidden;background:var(--lila-100);position:relative}
+.mb figure img,.mb figure video{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.mb figure.mb-data{display:grid;grid-template-columns:repeat(3,1fr);align-content:center;padding:28px;background:var(--surface);aspect-ratio:auto;gap:16px}
+.mb-data div{display:flex;flex-direction:column;gap:6px;border-top:2px solid var(--violet);padding-top:14px}
+.mb-data b{font:400 calc(clamp(24px,2.4vw,36px) * var(--ds))/1 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls)}
+.mb-data span{font-size:14px;color:var(--graphite)}
+.mb-data small{grid-column:1/-1;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
+
+/* ============ ETAPAS: paneles expandibles (skiper76) ============ */
+.panels{display:flex;gap:10px;height:clamp(480px,60vh,620px)}
+.panel{position:relative;flex:1;min-width:0;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:pointer;transition:flex .7s var(--ease),background .4s;display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.panel.on{flex:4.2;cursor:default}
+.panel.feat{background:var(--lila-100);border-color:var(--lila-200)}
+.panel:not(.on):hover{background:var(--surface)}
+.panel.feat:not(.on):hover{background:#e7dffa}
+.panel .pn{font:600 12px/1 var(--sans);letter-spacing:.14em;color:var(--graphite)}
+.panel .pv{font-size:calc(clamp(20px,1.8vw,28px) * var(--ds));writing-mode:vertical-rl;transform:rotate(180deg);align-self:flex-start;white-space:nowrap}
+.panel.on .pv{display:none}
+.panel .pc{display:none;flex-direction:column;gap:14px;max-width:38em}
+.panel.on .pc{display:flex;animation:stIn .6s var(--ease) .15s both}
+.panel .pc h3{font-size:calc(clamp(30px,3.2vw,50px) * var(--ds))}
+.panel .pc > p:not(.label){color:var(--graphite)}
+.panel .pc .label{color:var(--violet)}
+/* lista de beneficios con desenfoque progresivo arriba y abajo (skiper41) */
+.blur-wrap{position:relative;margin-top:4px}
+.blur-list{max-height:200px;overflow:auto;scrollbar-width:none;border-top:1px solid var(--lila-200);overscroll-behavior:contain}
+.blur-list::-webkit-scrollbar{display:none}
+.blur-list li{padding:12px 0;border-bottom:1px solid var(--lila-200);font-weight:500;will-change:filter,opacity}
+/* skiper41: desvanecido suave en los bordes de la lista; el desenfoque por línea lo calcula main.js */
+.blur-list{-webkit-mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent);mask-image:linear-gradient(transparent,#000 22%,#000 78%,transparent)}
+.blur-wrap.at-top .blur-list{-webkit-mask-image:linear-gradient(#000 78%,transparent);mask-image:linear-gradient(#000 78%,transparent)}
+.blur-wrap.at-end .blur-list{-webkit-mask-image:linear-gradient(transparent,#000 22%);mask-image:linear-gradient(transparent,#000 22%)}
+.blur-hint{font-size:12.5px;color:var(--graphite);margin-top:8px}
+.stages-note{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;color:var(--graphite)}
+
+/* ============ ENCONTRÁ TU AURA ============ */
+.finder-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:start}
+.finder-head{position:sticky;top:calc(var(--nav) + 40px)}
+.finder-head .eyebrow{margin-bottom:22px}
+.finder-meta{margin-top:20px}
+.finder-box{border:1px solid var(--line);padding:clamp(24px,3.5vw,48px);min-height:480px;display:flex;flex-direction:column}
+.finder-box .bars{margin-bottom:28px}
+.fq{display:none;flex-direction:column;gap:14px}
+.fq.on{display:flex;animation:stIn .45s var(--ease) both}
+.fq h3{font-size:calc(clamp(30px,3.2vw,48px) * var(--ds));margin-bottom:12px}
+.fres h3{font-size:calc(clamp(44px,5vw,80px) * var(--ds));color:var(--violet)}
+.fnote{padding:12px 14px;background:var(--lila-100);font-weight:500}
+.facts-row{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:10px}
+.finder-box .foot{margin-top:auto;padding-top:22px;display:flex;justify-content:space-between}
+
+/* ============ CÓMO FUNCIONA: trayectoria que se dibuja al scrollear (skiper19) ============ */
+.how-track{position:relative}
+.how-line{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.how-line path{fill:none;stroke:var(--lila-400);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset .55s cubic-bezier(.65,0,.35,1)}
+.how-line path.on{stroke-dashoffset:0}
+.steps{list-style:none;margin:0;padding:0;position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;min-height:540px}
+.steps li{display:flex;flex-direction:column;gap:12px;padding:20px 20px 24px;background:#fff;align-self:start;border-top:2px solid var(--ink);box-shadow:0 18px 40px rgba(21,18,28,.06)}
+.steps li:nth-child(2){margin-top:190px}.steps li:nth-child(3){margin-top:70px}.steps li:nth-child(4){margin-top:310px}
+/* sección fijada: mientras bajás 250vh, la línea va uniendo las 4 tarjetas que aparecen de a una */
+@media (min-width:1001px){
+  .how{height:200vh;padding-block:0}
+  .how-pin{position:sticky;top:var(--nav);height:calc(100vh - var(--nav));display:flex;align-items:center;overflow:hidden}
+  .how-pin .wrap{width:100%}
+  .how .sec-head{margin-bottom:28px}
+  .steps{--sh:min(520px,calc(100vh - var(--nav) - 230px));min-height:var(--sh);gap:56px}
+  .steps li:nth-child(2){margin-top:calc(var(--sh) * .36)}.steps li:nth-child(3){margin-top:calc(var(--sh) * .12)}.steps li:nth-child(4){margin-top:calc(var(--sh) * .54)}
+}
+.js .steps li{opacity:0;transform:translateY(28px) scale(.97);transition:opacity .45s var(--ease),transform .6s var(--ease)}
+.js .steps li.on{opacity:1;transform:none}
+/* la tarjeta siguiente aparece cuando su tramo de línea ya casi llegó */
+.js .steps li.on.wait{transition-delay:.42s}
+.sn{font:600 12px/1 var(--sans);letter-spacing:.14em;color:var(--violet)}
+.steps h3{font-size:calc(clamp(26px,2.4vw,36px) * var(--ds))}
+.steps p{color:var(--graphite);font-size:15.5px}
+
+/* ============ VIDEO con botón que sigue al cursor (skiper67) ============ */
+.vblock{padding:0 var(--gutter)}
+.vframe{position:relative;max-width:var(--max);margin-inline:auto;aspect-ratio:16/7.5;overflow:hidden;background:var(--ink);cursor:pointer}
+.vframe video{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.vfollow{position:absolute;left:0;top:0;width:110px;height:110px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font:600 13px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;pointer-events:none;transform:translate(-50%,-50%) scale(0);transition:transform .4s var(--ease);z-index:2}
+.vframe.hov .vfollow{transform:translate(-50%,-50%) scale(1)}
+html.has-cur .vframe.hov ~ * {}
+.vcap{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;gap:6px;padding:18px 22px;background:#fff;color:var(--ink);margin:0}
+.vcap b{font:400 calc(clamp(20px,2vw,30px) * var(--ds))/1 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls)}
+.vmodal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(21,18,28,.92)}
+.vmodal.on{display:flex}
+.vmodal video{max-height:90vh;max-width:100%}
+.vmodal .x{position:absolute;top:16px;right:16px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;font-size:24px;cursor:pointer}
+
+/* ============ GRATIS: video cards (ref: joinform) que llevan al popup ============ */
+.fcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fcard{position:relative;display:block;aspect-ratio:4/5;max-height:720px;width:100%;overflow:hidden;border:0;padding:0;background:var(--ink);color:#fff;text-align:left;font:inherit;cursor:pointer}
+.fcard img,.fcard video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:opacity .5s,transform 1.2s var(--ease)}
+.fcard video{opacity:0}
+.fcard.play video{opacity:1}
+.fcard:hover img,.fcard.play img{transform:scale(1.04)}
+.fcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(21,18,28,.4),transparent 25%,transparent 45%,rgba(21,18,28,.82))}
+.fc-top,.fc-bot{position:absolute;left:24px;right:24px;z-index:2}
+.fc-top{top:22px;display:flex;justify-content:space-between;align-items:center}
+.fc-free{background:var(--lila-200);color:var(--ink);font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:8px 10px}
+.fc-bot{bottom:24px;display:flex;flex-direction:column;gap:16px}
+.fc-bot b{font:400 calc(clamp(40px,4.4vw,72px) * var(--ds))/.92 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls)}
+.fc-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.35);font-size:14.5px;font-weight:500}
+.fc-meta small{display:block;font:700 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;opacity:.75;margin-bottom:6px}
+.fc-cta{display:flex;justify-content:space-between;align-items:center;font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.fc-cta i{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;transition:transform .35s var(--ease),background .2s}
+.fc-cta i svg{width:18px;height:18px}
+.fcard:hover .fc-cta i{transform:rotate(-45deg);background:var(--lila-200)}
+
+/* ============ SOBRE MÍ: columnas de fotos con parallax (skiper30) ============ */
+.about-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:center}
+.about-txt{display:flex;flex-direction:column;gap:20px}
+.about-txt p:not(.eyebrow){color:var(--graphite)}
+.about-txt p.first{color:var(--ink);font-size:clamp(19px,1.6vw,23px);line-height:1.4}
+.about-acts{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:8px}
+/* columnas de fotos (skiper30) dentro de la grilla: cada una centrada en la caja y desplazada por --gy (main.js) */
+.gallery{--gh:clamp(560px,82vh,820px);position:relative;display:flex;gap:12px;height:var(--gh);overflow:hidden}
+.gallery::before,.gallery::after{content:"";position:absolute;left:0;right:0;height:90px;z-index:2;pointer-events:none}
+.gallery::before{top:0;background:linear-gradient(var(--white),rgba(255,255,255,0))}
+.gallery::after{bottom:0;background:linear-gradient(rgba(255,255,255,0),var(--white))}
+.gcol{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;gap:12px;align-self:flex-start;transform:translate3d(0,calc(var(--gh) / 2 - 50% + var(--gy,0px)),0);will-change:transform}
+.gcol img{width:100%;aspect-ratio:3/4;object-fit:cover;background:var(--lila-100)}
+/* recorrido: línea de progreso con un punto por etapa, se llena de violeta al scrollear */
+.tline{--tp:0;position:relative;list-style:none;margin:clamp(64px,8vw,120px) 0 0;padding:40px 0 0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.tline::before,.tline::after{content:"";position:absolute;left:0;top:5px;height:2px;background:var(--line)}
+.tline::before{right:0}
+.tline::after{width:calc(var(--tp) * 100%);background:var(--violet)}
+.tline li{position:relative;display:flex;flex-direction:column;gap:8px}
+.tline li::before{content:"";position:absolute;left:0;top:-40px;width:12px;height:12px;border-radius:50%;background:var(--white);border:2px solid var(--line);transition:background .3s,border-color .3s}
+.tline li.on::before{background:var(--violet);border-color:var(--violet)}
+.tline b{font:400 calc(clamp(18px,1.6vw,24px) * var(--ds))/1.1 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls)}
+.tline span{font-size:13.5px;color:var(--graphite)}
+.tline li.end b{color:var(--violet)}
+.edu{margin-top:clamp(64px,8vw,120px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:24px 56px;align-items:start}
+.edu h3{font-size:calc(clamp(30px,3.4vw,52px) * var(--ds))}
+.edu ul{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.edu li{font:400 calc(clamp(17px,1.5vw,22px) * var(--ds))/1.15 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls);padding:18px 16px 18px 0;border-bottom:1px solid var(--line)}
+
+/* ============ PROCESOS: antes/después con manito (skiper50) ============ */
+.proc{background:var(--surface)}
+.proc-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:center}
+.proc .lead{margin-top:22px}
+.draft-note{margin-top:18px;display:inline-block;padding:8px 12px;border:1px dashed var(--violet);color:var(--violet);font-size:13.5px;font-weight:600}
+.cmp{--pos:50%;position:relative;aspect-ratio:4/3;overflow:hidden;user-select:none;touch-action:pan-y;background:#fff}
+.cmp-img{position:absolute;inset:0;display:grid;place-items:end center;padding-bottom:22px;font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.cmp-img.before{place-items:end start;padding-left:22px}
+.cmp-img.after{place-items:end end;padding-right:22px}
+.cmp-img.before{background:repeating-linear-gradient(45deg,#ece8f3 0 14px,#f4f1f8 14px 28px);color:var(--graphite)}
+.cmp-img.after{background:repeating-linear-gradient(45deg,var(--lila-200) 0 14px,#d6c9f8 14px 28px);color:var(--ink);clip-path:inset(0 0 0 var(--pos))}
+.cmp-tag{position:absolute;top:16px;padding:7px 11px;background:#fff;font:700 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;z-index:2}
+.cmp-tag.l{left:16px}.cmp-tag.r{right:16px}
+.cmp-bar{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;background:#fff;box-shadow:0 0 0 1px rgba(21,18,28,.08);z-index:2;pointer-events:none}
+.cmp-hand{position:absolute;top:50%;left:50%;width:68px;height:68px;border-radius:50%;background:var(--violet);color:#fff;display:grid;place-items:center;transform:translate(-50%,-50%);box-shadow:0 12px 30px rgba(106,69,216,.35);transition:transform .25s var(--ease)}
+.cmp-hand svg{width:34px;height:34px}
+.cmp.drag .cmp-hand{transform:translate(-50%,-50%) scale(1.12) rotate(-8deg)}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize;z-index:3}
+
+/* ============ RESEÑAS: texto en perspectiva que sube (skiper28) + parallax (Alive) ============ */
+.reviews{position:relative;overflow:hidden;background:#fff}
+.crawl{position:absolute;inset:0;perspective:900px;perspective-origin:50% 10%;pointer-events:none;overflow:hidden}
+.crawl-in{position:absolute;left:50%;top:0;width:min(1100px,94vw);transform-style:preserve-3d;transform:translateX(-50%) rotateX(26deg) translateY(var(--cy,40%));transform-origin:50% 0;text-align:center;width:100%}
+.crawl-in p{font:400 calc(clamp(72px,11.5vw,200px) * var(--ds))/.95 var(--display);text-transform:var(--dtt);color:#e4dafb;margin:0;white-space:nowrap;letter-spacing:var(--dls)}
+.reviews::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;background:linear-gradient(rgba(255,255,255,0),#fff);pointer-events:none}
+.reviews .wrap{position:relative;z-index:1}
+.rcols{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:940px;margin-inline:auto}
+.rcol{display:flex;flex-direction:column;gap:20px;will-change:transform}
+.rcol:nth-child(2){margin-top:110px}
+.rev{margin:0;background:#fff;border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;gap:18px;box-shadow:0 20px 50px rgba(21,18,28,.06)}
+.rev blockquote{margin:0;font:400 calc(clamp(20px,1.8vw,26px) * var(--ds))/1.2 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls)}
+.rev figcaption{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--graphite)}
+.rev figcaption i{width:38px;height:38px;border-radius:50%;background:var(--lila-200);display:grid;place-items:center;font-style:normal;font-weight:700;color:var(--ink)}
+.rtag{align-self:flex-start;border:1px dashed var(--graphite);padding:5px 8px;font:700 10px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
+
+/* ============ FAQ ============ */
+.faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,96px);align-items:start}
+.faq-grid > div:first-child{position:sticky;top:calc(var(--nav) + 40px)}
+.faq-grid .eyebrow{margin-bottom:22px}
+.faq-list{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;cursor:pointer;font:400 calc(clamp(19px,1.7vw,25px) * var(--ds))/1.2 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls);transition:color .2s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary i{flex:none;position:relative;width:34px;height:34px;border:1px solid var(--ink);border-radius:50%;transition:background .25s,transform .35s var(--ease),border-color .25s}
+.faq summary i::before,.faq summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:currentColor;transform:translate(-50%,-50%)}
+.faq summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq details[open] summary i{background:var(--violet);border-color:var(--violet);color:#fff;transform:rotate(45deg)}
+.faq summary:hover{color:var(--violet)}
+.faq details p{padding:0 56px 26px 0;color:var(--graphite);max-width:60ch}
+
+/* ============ CTA FINAL ============ */
+.final{background:var(--violet);color:#fff;padding-block:clamp(100px,13vw,190px)}
+.final-l{color:var(--lila-200);margin-bottom:28px}
+.final-h{font-size:calc(clamp(42px,6.4vw,104px) * var(--ds));max-width:14em;margin-bottom:44px}
+.final-h em{color:var(--lila-200);font-style:normal}
+
+/* ============ FOOTER ============ */
+.foot-site{padding:56px 0 calc(28px + env(safe-area-inset-bottom,0px));overflow:hidden}
+.fs-top{display:grid;grid-template-columns:auto 1fr auto;gap:24px 48px;align-items:center}
+.fs-top .brand img{height:42px;width:auto}
+.fs-top nav{display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:center}
+.fs-top nav a,.fs-contact a,.fs-contact button{font:500 15px/1 var(--sans);text-decoration:none;color:var(--ink);background:none;border:0;padding:0;cursor:pointer}
+.fs-top nav a:hover,.fs-contact a:hover,.fs-contact button:hover{color:var(--violet)}
+.fs-contact{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.fs-big{text-align:center;font:400 calc(clamp(36px,7.3vw,132px) * var(--ds))/.95 var(--display);text-transform:var(--dtt);letter-spacing:var(--dls);color:var(--lila-200);margin:56px 0 24px;white-space:nowrap}
+.fs-bottom{display:flex;flex-wrap:wrap;justify-content:center;text-align:center;gap:10px 24px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--graphite)}
+
+/* ============ POPUP: estructura fija (cabecera · pregunta · pie) para que nunca quede cortado ============ */
+.modal{width:min(1000px,100%);height:min(640px,calc(100svh - 48px));min-height:0;max-height:none;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}
+.modal .photo img{object-position:30% 40%}
+.modal .photo span{left:24px;bottom:24px}
+.modal .content{display:grid;grid-template-rows:auto minmax(0,1fr) auto;padding:0;justify-content:stretch;overflow:hidden}
+.m-head{display:flex;align-items:center;gap:16px;padding:22px clamp(24px,4vw,48px) 0}
+.m-head .bars{flex:1;margin:0}
+.m-head .bars i{flex:1;max-width:56px}
+.m-head .label{color:var(--graphite);white-space:nowrap}
+.modal .m-head .x{position:static;flex:none;width:40px;height:40px;font-size:20px}
+.modal .m-head .x:hover{border-color:var(--ink)}
+#flow{overflow-y:auto;overscroll-behavior:contain;padding:clamp(24px,4vh,44px) clamp(24px,4vw,48px) 24px;scrollbar-width:thin}
+.st h3{font-size:calc(clamp(30px,3vw,46px) * var(--ds));margin:16px 0 24px;max-width:14em}
+.opts.two .opt:last-child:nth-child(odd){grid-column:1/-1}
+.opt{min-height:58px}
+.opt::after{content:"";flex:none;width:14px;height:14px;opacity:.35;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 10h11M11 5l5 5-5 5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M4 10h11M11 5l5 5-5 5'/%3E%3C/svg%3E") center/contain no-repeat;transition:opacity .2s,transform .25s var(--ease)}
+.opt:hover::after{opacity:1;transform:translateX(3px);background:var(--violet)}
+.m-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:60px;padding:0 clamp(24px,4vw,48px);border-top:1px solid var(--line);background:#fff}
+.m-hint{font-size:13px;color:var(--graphite)}
+.done .check{margin-bottom:20px}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1000px){
+  .sec-head.two,.ident-grid,.ident-end,.method-grid,.finder-grid,.about-grid,.proc-grid,.faq-grid,.edu{grid-template-columns:1fr}
+  .ident-head,.finder-head,.faq-grid > div:first-child{position:static}
+  .method-side{display:none}
+  .mb{min-height:0}
+  .panels{flex-direction:column;height:auto}
+  .panel{flex:none!important;min-height:72px;padding:18px 20px}
+  .panel .pv{writing-mode:horizontal-tb;transform:none}
+  .steps{grid-template-columns:1fr 1fr;min-height:0}
+  .steps li{margin-top:0!important}
+  .how-line{display:none}
+  .tline{grid-template-columns:repeat(3,1fr);row-gap:36px;padding-top:0}
+  .tline::before,.tline::after{display:none}
+  .tline li{padding-top:24px}
+  .tline li::before{top:0}
+  .fs-top{grid-template-columns:1fr;justify-items:start}
+  .fs-top nav{justify-content:flex-start}
+  .fs-contact{align-items:flex-start}
+}
+@media (max-width:760px){
+  .ident-list li{font-size:calc(clamp(26px,8vw,40px) * var(--ds))}
+  .mb figure.mb-data{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .vframe{aspect-ratio:4/5}
+  .vfollow{display:none}
+  .fcards{grid-template-columns:1fr}
+  .fc-meta{grid-template-columns:1fr 1fr}
+  .fc-meta span:nth-child(3){display:none}
+  .gallery{--gh:min(560px,82vh);gap:10px}
+  .gcol:nth-child(3){display:none}
+  .tline{grid-template-columns:1fr 1fr}
+  .edu ul{grid-template-columns:1fr}
+  .rcols{grid-template-columns:1fr}
+  .rcol:nth-child(2){margin-top:0}
+  .faq details p{padding-right:0}
+  .fs-big{white-space:normal}
+  .finder-box{min-height:0}
+  .modal{height:100svh;width:100%;grid-template-columns:1fr}
+  .m-head{padding:16px 18px 0}
+  #flow{padding:24px 18px}
+  .m-foot{padding:0 18px calc(env(safe-area-inset-bottom,0px))}
+}
+@media (prefers-reduced-motion:reduce){
+  .ident-list li{color:var(--ink)}
+  .how-line path{stroke-dashoffset:0}
+  .js .steps li{opacity:1;transform:none}
+  .tline::after{width:100%}
+}
+
+/* ===================== SISTEMA UNIFICADO desktop + mobile ===================== */
+/* Etiquetas de sección: la estrella del logo de AURA + texto, sin caja (más propio de la marca) */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;padding:0;background:none;border-radius:0;color:var(--ink);font:600 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.eyebrow::before{content:"";display:block;flex:none;width:12px;height:12px;background:var(--violet);border-radius:0;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='467 9.5 50 50.5'%3E%3Cpath d='M492.1 59.55c-2.7-13.15-11.34-21.9-24.6-24.7 12.73-2.64 22.47-11.52 24.63-24.72 2.66 12.94 10.8 22 24.07 24.72-12.7 3.17-21.76 11.57-24.1 24.7z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='467 9.5 50 50.5'%3E%3Cpath d='M492.1 59.55c-2.7-13.15-11.34-21.9-24.6-24.7 12.73-2.64 22.47-11.52 24.63-24.72 2.66 12.94 10.8 22 24.07 24.72-12.7 3.17-21.76 11.57-24.1 24.7z'/%3E%3C/svg%3E") center/contain no-repeat}
+.finder .eyebrow,.hero .eyebrow{color:inherit}
+@media (max-width:760px){.finder .eyebrow::before{background:var(--lila-200)}}
+.st .eyebrow{color:var(--graphite)}
+
+/* Formas: esquinas suaves en cards, fotos y popup (igual que mobile) */
+.pcard,.hero-card,.fcard,.vframe,.rev,.steps li,.finder-box,.cmp,.panel,.modal,.about-photo,.gcol img,.mb figure,.stage .phone{border-radius:18px}
+.pcard .media .cap,.hero-card .stamp{border-radius:0 10px 0 0}
+.hero-card{animation-name:mediaInR}
+@keyframes mediaInR{from{clip-path:inset(100% 0 0 0 round 18px)}to{clip-path:inset(0 0 0 0 round 18px)}}
+.opt,.field input{border-radius:10px}
+.tag{border-radius:6px}
+.vcap{border-radius:0 12px 0 0}
+
+/* Botones: la flecha en su propio cuadrado pegado al botón (igual que mobile) */
+.btn{border-radius:12px}
+.btn svg{box-sizing:content-box;width:16px;height:16px;padding:10px;margin-right:-18px;border-radius:9px;background:var(--lila-200);color:var(--ink)}
+.btn-w svg,.btn-wa svg{background:var(--violet);color:#fff}
+.btn-wa svg{background:rgba(255,255,255,.22);color:#fff}
+.btn:hover svg{transform:translateX(2px)}
+/* Encontrá tu AURA con fondo violeta también en desktop (mismo criterio que mobile: que se note que hay que completarlo) */
+.finder{background:var(--violet);color:#fff}
+.finder .eyebrow::before{background:var(--lila-200)}
+.finder .h2 em{color:var(--lila-200)}
+.finder-meta{color:rgba(255,255,255,.8)}
+.finder-box{background:#fff;color:var(--ink);border:0;box-shadow:0 30px 70px rgba(21,18,28,.25)}
+/* etiquetas de sección en mayúscula y minúscula (no todo en mayúsculas) */
+.eyebrow{text-transform:none;letter-spacing:.01em;font-size:13.5px;font-weight:600}
+@media (max-width:760px){.eyebrow{font-size:13px}}
+/* popup: opciones de plan con botón (i) que despliega qué incluye */
+.plan-opts .po{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:stretch;border:1px solid var(--line);border-radius:10px;background:#fff;transition:border-color .2s}
+.plan-opts .po:hover{border-color:var(--lila-200)}
+.plan-opts .po .opt{width:auto;min-width:0;padding-right:8px;border:0;border-radius:10px 0 0 10px;flex-direction:column;align-items:flex-start;justify-content:center;gap:3px;font-weight:600}
+.plan-opts .po .opt::after{display:none}
+.plan-opts .opt small{font-weight:400;font-size:13.5px;color:var(--graphite)}
+.po-i{align-self:center;width:30px;height:30px;margin-right:14px;border-radius:50%;border:1.5px solid var(--violet);background:#fff;color:var(--violet);font:700 14px/1 Georgia,serif;font-style:italic;cursor:pointer;transition:background .2s,color .2s}
+.po-i:hover,.po-i[aria-expanded="true"]{background:var(--violet);color:#fff}
+.po-d{grid-column:1/-1;display:none;margin:0;padding:2px 18px 14px;list-style:none;font-size:14px;line-height:1.45;color:var(--graphite)}
+.po.info .po-d{display:block;animation:stIn .35s var(--ease) both}
+.po-d li{display:flex;gap:8px;padding:3px 0}
+.po-d li::before{content:"·";color:var(--violet);font-weight:700}
+/* el contenido del popup nunca más ancho que la pantalla */
+.modal .content,#flow,.st,.opts{min-width:0}
+@media (max-width:760px){.modal{grid-template-columns:minmax(0,1fr)!important}}
+.modal .content{grid-template-columns:minmax(0,1fr)}
+/* animaciones de texto (ref integratedbio.com) también en desktop */
+.mw{position:relative;display:inline-block}
+.mw::after{content:"";position:absolute;left:-.03em;right:-.03em;top:.08em;bottom:.04em;background:currentColor;transform-origin:100% 50%;transform:scaleX(1);transition:transform .7s cubic-bezier(.77,0,.18,1);transition-delay:var(--md,0ms)}
+.mreveal.in .mw::after{transform:scaleX(0)}
+.js .h2.mreveal[data-reveal]{opacity:1;transform:none}
+[data-fill] .fw{opacity:.22;transition:opacity .25s linear}
+[data-fill] .fw.on{opacity:1}
+
+/* ===================== HERO DESKTOP a pantalla completa (ref carolinegirvan.com) =====================
+   Foto de Aldana ocupando toda la pantalla, nav transparente encima con texto blanco,
+   titular grande abajo a la izquierda sobre un degradado oscuro, botón "Ver video" en la esquina. */
+@media (min-width:761px){
+  .hero{position:relative;height:100vh;height:100svh;min-height:620px;margin-top:calc(-1 * var(--nav));padding:0!important}
+  .hero-grid{display:block!important;height:100%;max-width:none;padding:0!important}
+  .hero-card{position:absolute!important;inset:0;height:100%!important;min-height:0!important;aspect-ratio:auto!important;border-radius:0!important;animation:none;clip-path:none}
+  .hero-card .still{object-position:62% 28%}
+  .hero-card video{object-position:50% 60%}
+  .hero-card .shade{background:linear-gradient(90deg,rgba(21,18,28,.78) 0%,rgba(21,18,28,.5) 34%,rgba(21,18,28,.08) 62%,rgba(21,18,28,0) 100%),linear-gradient(0deg,rgba(21,18,28,.45),rgba(21,18,28,0) 40%)}
+  .hc-top,.hc-bottom{display:none}
+  .hc-play{display:inline-flex;position:absolute;z-index:4;right:var(--gutter);bottom:clamp(36px,7vh,72px);align-items:center;gap:10px;height:44px;padding:0 18px 0 14px;border:1px solid rgba(255,255,255,.7);border-radius:999px;background:rgba(21,18,28,.25);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;font:600 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .2s}
+  .hc-play:hover{background:rgba(255,255,255,.18)}
+  .hc-play svg{width:15px;height:15px}
+  .hero-copy{position:absolute;z-index:3;left:max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter)));bottom:clamp(48px,10vh,110px);width:min(720px,52vw);color:#fff}
+  .hero .eyebrow{display:none}
+  .hero h1{color:#fff;font-size:calc(clamp(48px,5.6vw,92px) * var(--ds))}
+  .hero h1 .acc{color:var(--lila-200)}
+  .hero h1 .acc path{stroke:var(--lila-200)}
+  .hero .sub{color:rgba(255,255,255,.9)}
+  .hero .lead{color:rgba(255,255,255,.78);max-width:30em}
+  .hero-tags{display:none}
+  .hero-actions .btn-v{background:#fff;color:var(--violet)}
+  .hero-actions .btn-v svg{background:var(--violet);color:#fff}
+  .hero-actions .btn-v:hover{background:var(--lila-100)}
+  .hero-actions .link{color:#fff}
+
+  /* nav transparente sobre la foto; al bajar vuelve la cápsula clara */
+  .nav:not(.solid){background:none;box-shadow:none}
+  .nav:not(.solid) .links a{color:#fff}
+  .nav:not(.solid) .links a::after{background:#fff}
+  .nav:not(.solid) .brand img{filter:brightness(0) invert(1)}
+  .nav:not(.solid) .btn{background:#fff;color:var(--ink)}
+  .nav:not(.solid) .btn:hover{background:var(--lila-100)}
+}
+/* las fotos de Aldana son verticales: en desktop la foto va a la derecha y a la izquierda
+   la misma imagen desenfocada y oscurecida, para que se funda (como el fondo de CGX) */
+.hero-bg{display:none}
+@media (min-width:761px){
+  .hero-bg{display:block;position:absolute;inset:-40px;background:url(../media/retrato.jpg) 60% 30%/cover no-repeat;filter:blur(38px) brightness(.55) saturate(.85);transform:scale(1.1)}
+  .hero-card .still,.hero-card video{left:auto;right:0;width:60%;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);mask-image:linear-gradient(90deg,transparent 0,#000 30%)}
+  .hero-card .still{object-position:50% 25%}
+  .hero-card .shade{background:linear-gradient(90deg,rgba(21,18,28,.55) 0%,rgba(21,18,28,.25) 40%,rgba(21,18,28,0) 65%),linear-gradient(0deg,rgba(21,18,28,.35),rgba(21,18,28,0) 35%)}
+  .hero-copy{width:min(680px,46vw)}
+}
+@media (min-width:761px){
+  .hero-card .hc-play{display:inline-flex}
+  .hero-bg{filter:blur(38px) brightness(.68) saturate(.9)}
+}
+/* hero desktop: vuelven los datos de la tarjeta (nombre, @, especialidad, modalidad, slogan) sobre la foto */
+@media (min-width:761px){
+  .hero-card .hc-top,.hero-card .hc-bottom{display:block;left:auto;right:max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter)));width:min(460px,34vw);z-index:3}
+  .hero-card .hc-top{top:calc(var(--nav) + 28px);text-align:right}
+  .hero-card .hc-bottom{bottom:clamp(48px,10vh,110px)}
+  .hero-card .hc-row{display:flex}
+  .hero-card .hc-bottom dl{display:grid}
+  .hero-card .hc-play{top:calc(var(--nav) + 30px);bottom:auto;left:max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter)));right:auto}
+  .hero-card .shade{background:linear-gradient(90deg,rgba(21,18,28,.55) 0%,rgba(21,18,28,.25) 40%,rgba(21,18,28,0) 65%),linear-gradient(0deg,rgba(21,18,28,.6),rgba(21,18,28,0) 38%),linear-gradient(180deg,rgba(21,18,28,.35),rgba(21,18,28,0) 25%)}
+}
+@media (min-width:761px){
+  .hero-card .hc-play{left:auto;right:max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter)));top:calc(var(--nav) + 112px)}
+}
+/* hero desktop más liviano: sin "Ver video" (el video sale con hover), sin especialidad/modalidad, titular más chico */
+@media (min-width:761px){
+  .hero-card .hc-play{display:none}
+  .hero-card .hc-bottom dl{display:none}
+  .hero-card .hc-row{border-top:0;padding-top:0}
+  .hero-card .shade{pointer-events:none}
+  .hero h1{font-size:calc(clamp(42px,4.4vw,72px) * var(--ds))}
+  .hero .sub{font-size:calc(clamp(18px,1.6vw,24px) * var(--ds))}
+  .hero .lead{display:none}
+  .hero-actions{margin-top:28px}
+}
+/* hero desktop: sin @aura._training; texto centrado en vertical, ocupando toda la columna izquierda
+   y sin pisar la foto (la foto pasa a ocupar el 55% derecho) */
+@media (min-width:761px){
+  .hero-card .hc-top a{display:none}
+  .hero-card .still,.hero-card video{width:55%}
+  .hero-copy{--hl:max(var(--gutter),calc((100vw - var(--max)) / 2 + var(--gutter)));left:var(--hl);top:50%;bottom:auto;transform:translateY(-44%);width:calc(45vw - var(--hl) - 28px);container-type:inline-size}
+  .hero h1{font-size:calc(13.4cqw * var(--ds));line-height:.98}
+  .hero .sub{font-size:max(18px,4cqw);margin-top:22px}
+  .hero-actions{margin-top:32px}
+}
+@media (min-width:761px){.hero .sub{font-size:max(19px,4.8cqw);margin-top:34px}}
+/* cómo funciona: más aire entre tarjetas para que el conector en S respire; borde superior recto (sin pelear con el radio) */
+@media (min-width:1001px){ .steps{gap:84px!important} }
+.steps li{border-top:0;border:1px solid var(--line)}
+.how-line path{stroke-width:2.5}
+/* aire entre "Cómo funciona" y el video grande */
+.vblock{margin-top:clamp(64px,9vw,140px)}
+@media (min-width:1001px){.how{height:215vh}.how-pin{align-items:flex-start;padding-top:clamp(24px,5vh,56px)}}
+/* cómo funciona fijada: las 4 tarjetas siempre entran enteras en la pantalla.
+   --free = alto disponible para el "escalón" = pantalla − nav − título − alto de una tarjeta − márgenes */
+@media (min-width:1001px){
+  .how .sec-head{margin-bottom:20px}
+  .how .h2{font-size:calc(clamp(36px,4.6vw,72px) * var(--ds))}
+  .steps{--free:max(0px,calc(100vh - var(--nav) - 190px - 230px - 40px));min-height:0!important;padding-bottom:8px}
+  .steps li{padding:16px 18px 18px;gap:8px}
+  .steps li:nth-child(2){margin-top:calc(var(--free) * .62)!important}
+  .steps li:nth-child(3){margin-top:calc(var(--free) * .22)!important}
+  .steps li:nth-child(4){margin-top:var(--free)!important}
+}
+@media (min-width:1001px) and (max-height:720px){
+  .steps p{font-size:14.5px;line-height:1.45}
+  .steps h3{font-size:calc(24px * var(--ds))}
+}
+@media (min-width:1001px){.vblock{margin-top:24px}.how{height:230vh}}
+/* hero sin el nombre de Aldana */
+.hero-card .hc-top{display:none!important}
+
+/* ===================== HERO DESKTOP v3: fondo blanco + Aldana recortada a la derecha =====================
+   Estructura e info del hero anterior; estética de la segunda referencia: tipografía grande a la izquierda,
+   figura recortada a la derecha sin fondo y una línea curva fina (arco de tres puntos) detrás. */
+.hero-cut{display:none}
+@media (min-width:761px){
+  .hero{height:calc(100svh - var(--nav));min-height:560px;max-height:900px;margin-top:0;padding:0!important;overflow:hidden;background:#fff}
+  .hero-grid{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;height:100%;max-width:var(--max);padding-inline:var(--gutter)!important}
+  .hero-card,.hero-bg{display:none!important}
+  .hero-copy{position:relative!important;left:auto!important;top:auto!important;bottom:auto!important;transform:none!important;width:auto!important;container-type:normal;z-index:2;color:var(--ink);padding-bottom:4vh}
+  .hero .eyebrow{display:inline-flex!important;color:var(--graphite);margin-bottom:22px}
+  .hero h1{color:var(--ink);font-size:calc(clamp(44px,5.4vw,92px) * var(--ds));line-height:.98;max-width:9.5em}
+  .hero h1 .acc{color:var(--violet)}
+  .hero h1 .acc path{stroke:var(--violet)}
+  .hero .sub{font:400 clamp(17px,1.35vw,21px)/1.5 var(--sans);letter-spacing:0;color:var(--graphite);margin-top:28px;max-width:28em}
+  .hero-actions{margin-top:34px}
+  .hero-actions .btn-v{background:var(--violet);color:#fff}
+  .hero-actions .btn-v svg{background:rgba(255,255,255,.22);color:#fff}
+  .hero-actions .btn-v:hover{background:var(--violet-deep)}
+  .hero-actions .link{color:var(--ink)}
+
+  .hero-cut{display:block;position:relative;margin:0;height:100%;align-self:end}
+  .hero-cut img{position:absolute;right:-2%;bottom:0;height:94%;width:auto;max-width:none;object-fit:contain;filter:drop-shadow(0 30px 40px rgba(21,18,28,.12));opacity:0;transform:translateY(40px);animation:cutIn 1.1s var(--ease) .25s forwards}
+  @keyframes cutIn{to{opacity:1;transform:none}}
+  .hero-arc{position:absolute;left:4%;top:4%;width:118%;height:auto;overflow:visible;pointer-events:none}
+  .hero-arc circle{fill:none;stroke:var(--ink);stroke-width:1.2;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s var(--ease) .4s forwards}
+  .hero-arc circle{stroke-dasharray:1865;stroke-dashoffset:1865}
+  @keyframes arcDraw{to{stroke-dashoffset:0}}
+  .hero-arc circle{animation-name:arcDraw}
+
+  /* nav normal (oscura sobre blanco) también arriba de todo */
+  .nav:not(.solid) .links a{color:var(--ink)}
+  .nav:not(.solid) .links a::after{background:var(--violet)}
+  .nav:not(.solid) .brand img{filter:none}
+  .nav:not(.solid) .btn{background:var(--ink);color:#fff}
+  .nav:not(.solid) .btn:hover{background:var(--violet)}
+}
+@media (min-width:761px){.hero h1{font-size:calc(clamp(40px,4.5vw,78px) * var(--ds));max-width:none}.hero-copy{padding-right:2vw}}
+
+/* ===================== "A TU VIDA" en bloque de color + motion de entrada del hero ===================== */
+.hero h1 .acc.box{position:relative;display:inline-block;padding:.02em .2em .06em;margin-top:.08em;color:#fff!important;text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap;isolation:isolate}
+.hero h1 .acc.box::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--violet);transform-origin:0 50%;transform:scaleX(0);animation:boxIn .7s cubic-bezier(.77,0,.18,1) .75s forwards}
+@keyframes boxIn{to{transform:scaleX(1)}}
+/* el texto del bloque entra recién cuando el color ya pasó */
+.hero h1 .acc.box .w > span{animation-delay:1.1s!important}
+.hero h1 .acc.box svg{display:none}
+
+@media (min-width:761px){
+  /* figura: entra subiendo con escala y después "respira" muy suave */
+  .hero-cut img{transform:translateY(60px) scale(.96);animation:cutIn 1.2s var(--ease) .35s forwards,breathe 6s ease-in-out 1.6s infinite}
+  @keyframes cutIn{to{opacity:1;transform:none}}
+  @keyframes breathe{0%,100%{translate:0 0}50%{translate:0 -10px}}
+  /* arco: se dibuja y queda girando muy lento */
+  .hero-arc{animation:arcSpin 60s linear 2.2s infinite;transform-origin:50% 50%}
+  @keyframes arcSpin{to{rotate:360deg}}
+  .hero-arc circle{stroke-dasharray:1865}
+  /* palabra gigante "AURA" en contorno que se desliza detrás de la figura */
+  .hero-cut::before{content:"AURA";position:absolute;left:-6%;bottom:6%;z-index:0;font:400 clamp(160px,17vw,300px)/.8 var(--display);font-weight:var(--dw);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1.5px var(--lila-200);opacity:0;transform:translateX(-60px);animation:auraIn 1.4s var(--ease) .5s forwards}
+  @keyframes auraIn{to{opacity:1;transform:none}}
+  .hero-cut img{z-index:1}
+  /* paralaje leve con el mouse (main.js pone --mx/--my) */
+  .hero-cut img{margin-right:calc(var(--mx,0) * -14px);margin-bottom:calc(var(--my,0) * -8px)}
+  .hero-cut::before{margin-left:calc(var(--mx,0) * 22px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero h1 .acc.box::before{transform:none}
+  .hero-cut img,.hero-arc,.hero-cut::before{animation:none!important;opacity:1;transform:none}
+}
+/* "a tu vida" en minúscula, como el resto de los títulos */
+.hero h1 .acc.box{text-transform:none;letter-spacing:var(--dls)}
+/* AURA detrás de Aldana: relleno lila e inclinado en perspectiva, igual que el texto de fondo de las reseñas;
+   se desplaza hacia arriba al scrollear (main.js pone --hy) */
+@media (min-width:761px){
+  .hero-cut::before{color:#e4dafb;-webkit-text-stroke:0;font-size:clamp(170px,19vw,330px);bottom:2%;left:-10%;transform-origin:50% 100%;
+    transform:perspective(700px) rotateX(24deg) translateY(var(--hy,0px));animation:auraIn2 1.4s var(--ease) .5s forwards}
+  @keyframes auraIn2{from{opacity:0;translate:-60px 0}to{opacity:1;translate:0 0}}
+}
+@media (min-width:761px){.hero-cut::before{bottom:18%;font-size:clamp(160px,17vw,300px)}}
+/* el hero no termina "cortado": la figura, el arco y AURA se desvanecen hacia abajo en el blanco; sin sombra (dejaba un recuadro gris) */
+@media (min-width:761px){
+  .hero-cut{-webkit-mask-image:linear-gradient(180deg,#000 72%,transparent 99%);mask-image:linear-gradient(180deg,#000 72%,transparent 99%)}
+  .hero-cut img{filter:none}
+}
+@media (min-width:761px){
+  .hero-cut{-webkit-mask-image:none;mask-image:none}
+  /* fundido a blanco al pie del hero (encima de la figura, sin recortar los costados) */
+  .hero{position:relative}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;z-index:2;pointer-events:none;background:linear-gradient(rgba(255,255,255,0),#fff 92%)}
+  .hero-copy{z-index:3;container-type:inline-size}
+  .hero h1{font-size:calc(min(12.2cqw,96px) * var(--ds))}
+}
+
+/* ===================== HERO: sentadilla en stop motion con el scroll =====================
+   3 posiciones superpuestas (parada, media, profunda). Al entrar: parada al 100% y las otras tenues,
+   así se ve el movimiento completo. Al scrollear, el hero queda fijo y la sentadilla avanza
+   (main.js pone la opacidad de cada cuadro). Las fotos tienen fondo blanco: multiply lo hace invisible. */
+.squat{display:none}
+@media (min-width:761px){
+  .hero{height:calc(100svh - var(--nav) + 70vh);max-height:none;overflow:visible}
+  .hero-grid{position:sticky;top:var(--nav);height:calc(100svh - var(--nav));max-height:900px}
+  .hero::after{display:none}
+  .hero-grid::after{content:"";position:absolute;left:0;right:0;bottom:0;height:16%;z-index:2;pointer-events:none;background:linear-gradient(rgba(255,255,255,0),#fff 92%)}
+  .hero-cut > img{display:none}
+  .squat{display:block;position:absolute;right:-4%;bottom:0;height:100%;aspect-ratio:1;z-index:1;opacity:0;transform:translateY(50px);animation:cutIn 1.2s var(--ease) .35s forwards;margin-right:calc(var(--mx,0) * -14px);margin-bottom:calc(var(--my,0) * -8px)}
+  .squat img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .squat img[data-f="0"]{opacity:1}
+  .squat img[data-f="1"]{opacity:.16}
+  .squat img[data-f="2"]{opacity:.1}
+}
+@media (prefers-reduced-motion:reduce){.squat{animation:none;opacity:1;transform:none}}
+@media (min-width:761px){
+  /* el grupo entero se mezcla con la página: el fondo blanco de las fotos desaparece y no tapa el arco ni AURA */
+  .squat{mix-blend-mode:multiply}
+  .squat img{filter:brightness(1.05) contrast(1.06)}
+  .squat img[data-f="1"]{opacity:.12}
+  .squat img[data-f="2"]{opacity:.07}
+}
+@media (min-width:761px){.squat img{opacity:var(--o,1)}}
+.squat img[data-f="0"]{--o:1}.squat img[data-f="1"]{--o:.12}.squat img[data-f="2"]{--o:.07}
+
+/* ===================== HERO: cronofotografía (ref de Joaquín) =====================
+   4 posiciones de la sentadilla una al lado de la otra, desplazadas a la derecha y cada vez más tenues.
+   Al entrar aparece primero Aldana parada y las demás se van "dibujando" detrás, de a una.
+   Al scrollear, el foco (100%) viaja de la posición parada a la sentadilla profunda. */
+@media (min-width:761px){
+  .squat{right:auto;left:-4%;bottom:0;height:86%;aspect-ratio:1.51;opacity:1;transform:none;animation:none}
+  .squat img{left:calc(var(--i) * 11.3%);top:0;width:66.2%;height:100%;inset:auto;z-index:calc(10 - var(--i));
+    animation:frameIn .9s var(--ease) both!important;animation-delay:calc(.35s + var(--i) * .22s)!important}
+  @keyframes frameIn{from{opacity:0;translate:calc(var(--i) * -40%) 0}to{opacity:var(--o,1);translate:0 0}}
+  .squat img[data-f="0"]{--o:1}.squat img[data-f="1"]{--o:.72}.squat img[data-f="2"]{--o:.44}.squat img[data-f="3"]{--o:.18}
+  .hero-cut::before{left:4%}
+}
+@media (min-width:761px){.squat img[data-f]{opacity:var(--o,1)}.squat.ready img{animation:none!important}}
+@media (min-width:761px){
+  /* fila de 4 cuadros: cada uno corrido 13% del alto; la caja se apoya a la derecha (el blanco de las fotos no tapa nada) */
+  .squat{left:auto;right:-10%;height:84%;aspect-ratio:1.39}
+  .squat img{inset:auto!important;top:0!important;bottom:auto!important;right:auto!important;left:calc(var(--i) * 9.35%)!important;width:71.9%!important;height:100%!important}
+}
+@media (min-width:761px){.squat{right:-15%;height:80%;bottom:3%}}
+
+/* ===================== HERO: sentadilla en video controlada por el scroll =====================
+   main.js extrae los cuadros del video (media/squat.mp4) y los dibuja en el canvas según el scroll.
+   Mientras carga se ve el póster (Aldana parada). Fondo blanco del video: multiply lo funde con la página. */
+.squat-v{display:none}
+@media (min-width:761px){
+  .squat-v{display:block;position:absolute;right:-6%;bottom:0;height:96%;aspect-ratio:1;z-index:1;mix-blend-mode:multiply;
+    opacity:0;transform:translateY(40px);animation:cutIn 1.1s var(--ease) .3s forwards;margin-right:calc(var(--mx,0) * -14px)}
+  .squat-v canvas,.squat-v .squat-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+  .squat-v canvas{opacity:0;transition:opacity .3s}
+  .squat-v.live canvas{opacity:1}
+  .squat-v.live .squat-poster{opacity:0}
+}
+@media (min-width:761px){.squat-v canvas,.squat-v .squat-poster{filter:brightness(1.04) contrast(1.05)}}
+@media (min-width:761px){.squat-v video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:brightness(1.04) contrast(1.05)}}
+@media (min-width:761px){.hero{height:calc(100svh - var(--nav) + 110vh)}}
+/* el póster no hereda la animación de entrada de .hero-cut img (la dejaba en opacidad 1 tapando el canvas) */
+.squat-v .squat-poster{animation:none!important;opacity:1;transform:none!important}
+.squat-v.live .squat-poster{opacity:0!important}
+/* hovers sobre fondos violetas: en vez de violeta (que desaparece) pasan a lila claro */
+.pcard.el .link:hover,.final .link:hover,.finder-head .link:hover,.ident-end .link:hover{color:var(--lila-200)}
+.pcard.el .link{color:#fff}
+.pcard.el .btn-w:hover,.final .btn-w:hover{background:var(--lila-200);color:var(--ink)}
+.pcard.el .btn-w:hover svg,.final .btn-w:hover svg{background:var(--ink);color:#fff}
+/* Aldana por delante del círculo y de AURA: los cuadros se recortan (blanco → transparente) en main.js,
+   así que ya no hace falta el "multiply" que la dejaba teñida/detrás */
+@media (min-width:761px){
+  .hero-arc{z-index:0}
+  .hero-cut::before{z-index:0}
+  .squat-v{z-index:3;mix-blend-mode:normal}
+  .squat-v .squat-poster{mix-blend-mode:multiply}
+  .squat-v canvas{filter:none}
+}
+/* "a tu vida" alineado con "adaptado" (misma línea de base) */
+.hero h1 .acc.box{margin-top:0;padding:0 .16em .02em;vertical-align:baseline;line-height:1}
+.hero h1 .acc.box .w{vertical-align:baseline}
+@media (min-width:761px){.hero-arc circle{stroke-dasharray:1!important;stroke-dashoffset:1;vector-effect:none;stroke-width:1.6}@keyframes arcDraw{to{stroke-dashoffset:0}}}
+/* sin el degradé blanco al pie del hero (cortaba el círculo con un difuminado) */
+@media (min-width:761px){.hero-grid::after{display:none}}
+/* círculo con un tramo abierto que va girando (sin difuminado): se dibuja al entrar y queda abierto */
+@media (min-width:761px){
+  .hero-arc circle{stroke-dasharray:.78 .22!important;stroke-dashoffset:0!important;animation:arcOpen 1.8s var(--ease) .4s both!important}
+  @keyframes arcOpen{from{stroke-dasharray:0 1}to{stroke-dasharray:.78 .22}}
+}
+/* más aire entre el círculo y la cabeza de Aldana */
+@media (min-width:761px){.hero-arc{top:-4%}.squat-v{height:91%}}
+@media (min-width:761px){.hero-arc{top:0}.squat-v{height:86%}}
+/* Aldana más grande y el círculo más chico (ella es la protagonista); el círculo gira más rápido */
+@media (min-width:761px){
+  .squat-v{height:98%;right:-8%}
+  .hero-arc{width:100%;left:12%;top:6%;animation-duration:24s!important}
+}

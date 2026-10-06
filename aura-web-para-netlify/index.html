@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AURA Training · Entrenamiento personalizado</title>
+<meta name="description" content="Entrenamiento personalizado online y presencial con Aldana Piñeiro, Profesora de Educación Física. Tu entrenamiento tiene que adaptarse a tu vida.">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="media/logo/aura-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Tipografía de titulares a comparar: ?font=grotesk (default) · ?font=josefin · ?font=bogle. Al decidir, se deja una sola. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Josefin+Sans:wght@300;400;600&family=Inter+Tight:wght@500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css?v=55">
+<link rel="stylesheet" href="css/sections.css?v=55">
+<link rel="stylesheet" href="css/mobile.css?v=55">
+<script>
+  (function (d) {
+    d.classList.add('js');
+    var f = new URLSearchParams(location.search).get('font');
+    d.dataset.font = ['josefin', 'bogle'].indexOf(f) > -1 ? f : 'grotesk';
+  })(document.documentElement);
+</script>
+</head>
+<body>
+
+<div id="cur" data-v="circulo" aria-hidden="true"><div class="c">
+  <svg class="star" viewBox="467 9.5 50 50.5"><path d="M492.1 59.55c-2.7-13.15-11.34-21.9-24.6-24.7 12.73-2.64 22.47-11.52 24.63-24.72 2.66 12.94 10.8 22 24.07 24.72-12.7 3.17-21.76 11.57-24.1 24.7z"/></svg>
+  <svg class="arm" viewBox="0 0 48 48" fill="none"><path d="M5 9C5 5 8 3 12 3c4 0 6 3 5 7l-1 4c1 6 3 10 6 12 2-5 7-8 12-7 7 1 11 6 11 12v13H24c-10 0-15-6-16-14L6 16c-1-2-1-5-1-7z" fill="#6a45d8" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/><path d="M8.5 8h6M8.5 11.5h5.5M22 26c3 2 7 2 10 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+</div></div>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><img src="media/logo/aura-logo.svg" alt="AURA Training" width="79" height="34"></a>
+    <nav class="links" aria-label="Principal">
+      <a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#etapas">Etapas</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <button class="btn btn-k" type="button" data-open>Encontrá tu plan</button>
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu">Menú <i></i></button>
+    </div>
+  </div>
+</header>
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
+  <div class="top"><a class="brand" href="#inicio"><img src="media/logo/aura-logo.svg" alt="AURA Training" width="70" height="30"></a><button class="close" id="menuClose" type="button">Cerrar ×</button></div>
+  <a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#etapas">Etapas</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a>
+  <button class="btn btn-v" type="button" data-open>Encontrá tu plan</button>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Aldana Piñeiro · Prof. Educación Física</p>
+      <h1 data-words>Tu entrenamiento, adaptado <span class="acc box">a tu vida</span></h1>
+      <p class="sub">Entrená con una planificación que se adapta a tu rutina y evoluciona con vos.</p>
+      <p class="lead">Armo tu plan alrededor de lo que ya tenés: tu trabajo, tu familia, los días que podés entrenar. Vos lo sostenés, yo lo voy ajustando.</p>
+      <div class="hero-actions">
+        <button class="btn btn-v" type="button" data-open>Encontrá tu plan <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+        <a class="link" href="#aldana">Conocé a Aldana <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+      </div>
+      <p class="hero-tags label"><span>Planificación</span><span>Seguimiento</span><span>Adaptación</span></p>
+    </div>
+    <!-- Desktop: Aldana recortada sobre fondo blanco, con el arco de tres puntos detrás -->
+    <figure class="hero-cut" aria-hidden="true"><svg class="hero-arc" viewBox="0 0 600 600"><circle cx="300" cy="300" r="296" pathLength="1"/></svg><div class="squat-v" id="squatV" data-frames="50"><canvas id="squatCanvas" width="900" height="900"></canvas><img class="squat-poster" src="media/squat/s-00.webp" alt=""></div></figure>
+    <!-- Tarjeta estilo Alive: foto de Aldana; al pasar el mouse (o al verla en el celu) pasa a video entrenando -->
+    <figure class="hero-card" id="heroCard" data-cur>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <img class="still" src="media/retrato.jpg" alt="Aldana Piñeiro sonriendo en el parque con su botella de agua">
+      <video src="media/hero.mp4" poster="media/hero-poster.jpg" muted loop playsinline preload="none" aria-label="Aldana entrenando en el gimnasio"></video>
+      <div class="shade" aria-hidden="true"></div>
+      <button class="hc-play" id="heroPlay" type="button" aria-label="Ver video de Aldana entrenando"><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M6 4.5v11l9-5.5z"/></svg><span>Ver video</span></button>
+      <div class="hc-top">
+        <a class="label" href="https://www.instagram.com/aura._training" target="_blank" rel="noreferrer">@aura._training</a>
+        <p class="hc-name">Aldana Piñeiro</p>
+      </div>
+      <figcaption class="hc-bottom">
+        <dl>
+          <div><dt>Especialidad</dt><dd>Fuerza, hipertrofia y postparto</dd></div>
+          <div><dt>Entrenás</dt><dd>Online · Presencial</dd></div>
+        </dl>
+        <div class="hc-row">
+          <span class="hc-pill">Prof. Educación Física</span>
+          <span class="hc-slogan">Mejor hecho que perfecto.</span>
+          <button class="hc-go" type="button" data-open aria-label="Encontrá tu plan"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- PLANES (card stack) -->
+<section class="plans" id="planes">
+  <div class="wrap">
+    <div class="plans-head">
+      <div>
+        <p class="eyebrow" data-reveal>Planes</p>
+        <h2 class="h2" data-reveal>El método es el mismo. Cambia cuánto te <em>acompaño.</em></h2>
+      </div>
+      <div class="side" data-reveal style="--d:120ms">
+        <button class="link" type="button" data-open>¿No sabés cuál? Te ayudo a elegir <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+      </div>
+    </div>
+
+    <div class="stack" id="stack" data-rail>
+      <article class="pcard" id="plan-progress" style="--i:0">
+        <div class="body">
+          <div class="top"><p class="meter"><i aria-hidden="true"><b class="on"></b><b></b><b></b><b></b></i><span class="label">Acompañamiento bajo</span></p></div>
+          <div class="name"><small>AURA</small><h3>Progress</h3></div>
+          <p class="what">Planificación personalizada para entrenar por tu cuenta.</p>
+          <p class="d">Para dejar de improvisar. Te digo qué hacer, cómo hacerlo y cómo progresar, y vos lo hacés cuando podés.</p>
+          <ul class="inc"><li>Evaluación de objetivos, nivel y disponibilidad</li><li>Planificación personalizada en PDF</li><li>Video explicativo de cada ejercicio</li><li>Series, repeticiones, cargas y descansos</li><li>Progresión planificada</li><li>Seguimiento y ajustes</li></ul>
+          <button class="link more" type="button">Qué incluye +</button>
+          <dl class="facts"><div><dt>Modalidad</dt><dd>Online</dd></div><div><dt>Sesiones</dt><dd>Por tu cuenta</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
+          <div class="acts"><button class="btn btn-k" type="button" data-open data-plan="Progress">Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><button class="link" type="button" data-open data-plan="Progress" data-intent="rutina">Pedí la rutina base gratis</button></div>
+        </div>
+        <div class="media"><img src="media/espalda-ig.jpg" alt="Aldana en el parque con su botella de agua" loading="lazy" style="object-position:50% 25%"><span class="cap label">En casa o al aire libre</span></div>
+      </article>
+
+      <article class="pcard hy" id="plan-hybrid" style="--i:1">
+        <div class="body">
+          <div class="top"><p class="meter"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b><b></b></i><span class="label">Acompañamiento medio</span></p><span class="tag">Recomendado</span></div>
+          <div class="name"><small>AURA</small><h3>Hybrid</h3></div>
+          <p class="what">Planificación + 1 sesión presencial por semana + videollamada de seguimiento.</p>
+          <p class="d">Libertad durante la semana y un encuentro conmigo para corregir y ajustar. La flexibilidad de entrenar por tu cuenta, sin hacerlo en soledad.</p>
+          <ul class="inc"><li>Todo lo de Progress</li><li>1 sesión presencial semanal de 60 min</li><li>Videollamada de seguimiento</li><li>Registro de cargas y progresiones</li><li>Ajustes según tu evolución</li><li>Acompañamiento durante todo el proceso</li></ul>
+          <button class="link more" type="button">Qué incluye +</button>
+          <dl class="facts"><div><dt>Modalidad</dt><dd>Online + presencial</dd></div><div><dt>Encuentros</dt><dd>1 por semana</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
+          <div class="acts"><button class="btn btn-v" type="button" data-open data-plan="Hybrid">Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><button class="link" type="button" data-open data-plan="Hybrid" data-intent="prueba">Pedí una clase de prueba</button></div>
+        </div>
+        <div class="media"><video src="media/hero.mp4" poster="media/hero-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Aldana entrenando al aire libre" style="object-position:50% 70%"></video><span class="cap label">Sesión presencial</span></div>
+      </article>
+
+      <article class="pcard" id="plan-pro" style="--i:2">
+        <div class="body">
+          <div class="top"><p class="meter"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b></b></i><span class="label">Acompañamiento alto</span></p></div>
+          <div class="name"><small>AURA</small><h3>Pro</h3></div>
+          <p class="what">Entrenamiento online 1:1 por videollamada.</p>
+          <p class="d">Un personal trainer en tiempo real, desde donde estés. Entrenamos juntos, corrijo tu técnica en vivo y ajustamos sobre la marcha.</p>
+          <ul class="inc"><li>Sesiones individuales de 60 min</li><li>Corrección técnica en vivo</li><li>Planificación personalizada</li><li>Adaptación según nivel y objetivos</li><li>Seguimiento de cargas y progresiones</li><li>Videos explicativos de apoyo</li></ul>
+          <button class="link more" type="button">Qué incluye +</button>
+          <dl class="facts"><div><dt>Modalidad</dt><dd>Online 1:1</dd></div><div><dt>Sesiones</dt><dd>60 min en vivo</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
+          <div class="acts"><button class="btn btn-k" type="button" data-open data-plan="Pro">Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><button class="link" type="button" data-open data-plan="Pro" data-intent="prueba">Pedí una clase de prueba</button></div>
+        </div>
+        <div class="media"><img src="media/sentadilla.jpg" alt="Aldana haciendo sentadilla con banda" loading="lazy"><span class="cap label">Desde donde estés</span></div>
+      </article>
+
+      <article class="pcard el" id="plan-elite" style="--i:3">
+        <div class="body">
+          <div class="top"><p class="meter"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b><b class="on"></b></i><span class="label">Acompañamiento total</span></p><span class="tag">Experiencia premium</span></div>
+          <div class="name"><small>AURA</small><h3>Élite</h3></div>
+          <p class="what">Entrenamiento presencial 1:1.</p>
+          <p class="d">La experiencia más personalizada: atención completa en cada sesión, adaptación en tiempo real y un plan diseñado alrededor tuyo.</p>
+          <ul class="inc"><li>Sesiones presenciales individuales de 60 min</li><li>Corrección técnica constante</li><li>Adaptación en tiempo real</li><li>Fuerza, hipertrofia, salud y rendimiento</li><li>Seguimiento de cargas y repeticiones</li><li>Acompañamiento cercano</li></ul>
+          <button class="link more" type="button">Qué incluye +</button>
+          <dl class="facts"><div><dt>Modalidad</dt><dd>Presencial 1:1</dd></div><div><dt>Sesiones</dt><dd>60 min</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
+          <div class="acts"><button class="btn btn-w" type="button" data-open data-plan="Élite">Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><button class="link" type="button" data-open data-plan="Élite" data-intent="prueba">Pedí una clase de prueba</button></div>
+        </div>
+        <div class="media"><video src="media/gym.mp4" poster="media/gym-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Aldana entrenando con carga en el gimnasio" style="object-position:50% 20%"></video><span class="cap label">Presencial</span></div>
+      </article>
+    </div>
+
+    <div class="plans-foot" data-reveal>
+      <p class="muted">Probá antes de decidir: la rutina base es gratis y la clase de prueba también.</p>
+      <button class="link" type="button" data-open data-intent="prueba">Quiero probar AURA <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- ONLINE (celulares) -->
+<section class="online" id="online">
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow" data-reveal>Entrená donde estés</p>
+      <h2 class="h2" data-reveal>Online no es entrenar en <em>soledad.</em></h2>
+      <p class="lead" data-reveal style="--d:80ms">Tu planificación, las indicaciones de cada ejercicio y el seguimiento viajan con vos. Abrís el plan en el celular y sabés qué hacer, cómo hacerlo y para qué.</p>
+      <ul data-reveal style="--d:140ms">
+        <li>Rutinas claras <span>se actualizan con tu progreso</span></li>
+        <li>Video de cada ejercicio <span>técnica explicada por mí</span></li>
+        <li>Seguimiento directo <span>me escribís y te respondo yo</span></li>
+      </ul>
+      <a class="link" href="#plan-progress" data-reveal>Ver el plan online <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+    </div>
+    <div class="stage" id="stage" aria-label="Así se ve tu plan en el celular">
+      <div class="phone back">
+        <div class="prog">
+          <small>SEMANA 04</small>
+          <strong>Tu progreso</strong>
+          <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="42" pathLength="100"/><circle class="fg" cx="50" cy="50" r="42" pathLength="100"/></svg><b>78%</b></div>
+          <div class="wk" aria-hidden="true"><i class="on"></i><i></i><i class="on"></i><i></i><i class="on"></i><i></i><i></i></div>
+          <p>3 de 3 sesiones esta semana</p>
+        </div>
+      </div>
+      <div class="phone front">
+        <video src="media/gym.mp4" poster="media/gym-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+        <div class="workout"><small>FULL BODY · DÍA 02</small><strong>Tren inferior</strong><span>5 ejercicios · 45 min · con video</span></div>
+      </div>
+      <p class="note n1">Plan actualizado</p>
+      <p class="note n2">Video + técnica</p>
+    </div>
+  </div>
+</section>
+
+<!-- IDENTIFICACIÓN: las frases se van "encendiendo" al scrollear -->
+<section class="ident" id="identificacion">
+  <div class="wrap ident-grid">
+    <div class="ident-head">
+      <p class="eyebrow">Esto es para vos si</p>
+      <h2 class="h2">No necesitás que tu vida gire alrededor del <em>gym.</em></h2>
+    </div>
+    <div class="ident-wrap" data-blur><ol class="ident-list" id="identList">
+      <li>Trabajo todo el día.</li>
+      <li>Tengo hijos.</li>
+      <li>Solo puedo entrenar dos o tres días.</li>
+      <li>Hace mucho que no entreno.</li>
+      <li>No sé qué hacer en el gimnasio.</li>
+      <li>Empiezo rutinas y las abandono.</li>
+      <li>Mi semana cambia todo el tiempo.</li>
+      <li class="acc">“Empiezo el lunes.”</li>
+    </ol></div>
+  </div>
+  <div class="wrap ident-end">
+    <h3 data-reveal>El plan tiene que adaptarse a tu <em>realidad.</em></h3>
+    <p class="lead" data-reveal style="--d:100ms">La constancia no nace de hacer todo perfecto. Nace de tener un sistema que puedas sostener.</p>
+  </div>
+</section>
+
+<!-- MÉTODO A·U·R·A (sección sticky con índice, estilo Emily Skye) -->
+<section class="method" id="metodo">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal>Método AURA</p>
+      <h2 class="h2" data-reveal>Cuatro letras. Una forma de <em>entrenar.</em></h2>
+    </div>
+    <div class="method-grid">
+      <aside class="method-side" aria-hidden="true">
+        <ol class="method-idx" id="methodIdx">
+          <li class="on"><b>A</b>Activación</li><li><b>U</b>Unidad</li><li><b>R</b>Resultados</li><li><b>A</b>Adaptación</li>
+        </ol>
+        <div class="method-giant"><div class="giant-strip" id="methodGiant"><span>A</span><span>U</span><span>R</span><span>A</span></div></div>
+      </aside>
+      <div class="method-blocks" id="methodBlocks">
+        <article class="mb" data-i="0" data-l="A">
+          <p class="mb-l">A · Activación</p>
+          <h3>Activación <em>estratégica</em></h3>
+          <p>Movilidad, zona media y preparación específica antes de cada sesión. El cuerpo llega listo a lo que viene y entrenás con menos molestias.</p>
+          <figure><img src="media/sentadilla.webp" alt="Aldana activando con banda elástica" loading="lazy"></figure>
+        </article>
+        <article class="mb" data-i="1" data-l="U">
+          <p class="mb-l">U · Unidad</p>
+          <h3>Fuerza + <em>resistencia</em></h3>
+          <p>La fuerza como base, con el trabajo cardiovascular que tu objetivo necesita. Todo el cuerpo en la semana, aunque entrenes dos días.</p>
+          <figure><video src="media/gym.mp4" poster="media/gym-poster.jpg" muted loop playsinline preload="none" data-autoplay></video></figure>
+        </article>
+        <article class="mb" data-i="2" data-l="R">
+          <p class="mb-l">R · Resultados</p>
+          <h3>Resultados <em>medibles</em></h3>
+          <p>Progresión, sobrecarga y registro de cargas y sensaciones. Tu evolución queda escrita: sabés de dónde arrancaste y cuánto avanzaste.</p>
+          <figure class="mb-data"><div><b>+12,5 kg</b><span>sentadilla en 10 semanas</span></div><div><b>3 de 3</b><span>sesiones esta semana</span></div><div><b>Semana 04</b><span>bloque de fuerza</span></div><small>Datos de ejemplo</small></figure>
+        </article>
+        <article class="mb" data-i="3" data-l="A">
+          <p class="mb-l">A · Adaptación</p>
+          <h3>Adaptación <em>personalizada</em></h3>
+          <p>El plan cambia con vos: con tu progreso, tu semana y tu momento de vida. Si una semana se complica, se ajusta. No se abandona.</p>
+          <figure><img src="media/espalda.jpg" alt="Aldana en el parque" loading="lazy"></figure>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ETAPAS: embarazo y otras etapas como adaptación (paneles expandibles, skiper76) -->
+<section class="stages" id="etapas">
+  <div class="wrap">
+    <div class="sec-head two">
+      <div>
+        <p class="eyebrow" data-reveal>Etapas</p>
+        <h2 class="h2" data-reveal>Tu cuerpo cambia. El plan <em>también.</em></h2>
+      </div>
+      <p class="lead" data-reveal style="--d:100ms">Adaptar no es solo acomodar días. Hay momentos en los que entrenar no se frena: se transforma. Para eso me formé.</p>
+    </div>
+    <div class="panels" id="panels">
+      <article class="panel feat on" tabindex="0">
+        <p class="pn">01</p>
+        <h3 class="pv">Embarazo</h3>
+        <div class="pc">
+          <p class="label">Especialidad · con aval médico</p>
+          <h3>Entrenar durante el <em>embarazo</em></h3>
+          <p>No es dejar de moverte: es moverte distinto en cada trimestre. Cuidamos la fuerza que vas a necesitar para el parto y para lo que viene después.</p>
+          <div class="blur-wrap at-top" data-blur><div class="blur-list">
+            <ul>
+              <li>Llegar al parto con más fuerza y resistencia.</li>
+              <li>Cuidar la postura y la espalda mientras el cuerpo cambia.</li>
+              <li>Dormir mejor y bajar la tensión del día.</li>
+              <li>Preparar la zona media y el suelo pélvico para el postparto.</li>
+              <li>Sostener el hábito, para que volver sea más fácil.</li>
+              <li>Ajustes trimestre a trimestre, siempre con el ok de tu médico o médica.</li>
+            </ul>
+          </div></div><p class="blur-hint">Deslizá la lista</p>
+        </div>
+      </article>
+      <article class="panel" tabindex="0">
+        <p class="pn">02</p>
+        <h3 class="pv">Postparto e hipopresivos</h3>
+        <div class="pc">
+          <p class="label">Especialidad</p>
+          <h3>La vuelta se <em>planifica</em></h3>
+          <p>Primero zona media y suelo pélvico con hipopresivos aplicados al postparto. Después, fuerza progresiva. Sin apuro y sin saltear etapas.</p>
+        </div>
+      </article>
+      <article class="panel" tabindex="0">
+        <p class="pn">03</p>
+        <h3 class="pv">Volver después de años</h3>
+        <div class="pc">
+          <p class="label">Volver a moverte</p>
+          <h3>Desde donde estás <em>hoy</em></h3>
+          <p>Empezar de cero o volver después de mucho tiempo, sin que la primera semana te deje afuera. La progresión se arma con lo que hoy podés.</p>
+        </div>
+      </article>
+      <article class="panel" tabindex="0">
+        <p class="pn">04</p>
+        <h3 class="pv">Dolor y postura</h3>
+        <div class="pc">
+          <p class="label">Salud</p>
+          <h3>Fuerza para la vida <em>diaria</em></h3>
+          <p>Espalda, cadera, hombros. Trabajo por patrones de movimiento para que el cuerpo rinda fuera del gimnasio, en tu trabajo y con tus hijos.</p>
+        </div>
+      </article>
+      <article class="panel" tabindex="0">
+        <p class="pn">05</p>
+        <h3 class="pv">Rendimiento deportivo</h3>
+        <div class="pc">
+          <p class="label">Deporte</p>
+          <h3>Fuerza para tu <em>deporte</em></h3>
+          <p>Potencia, prevención de lesiones y una planificación que respeta tu calendario de entrenamientos y partidos. Lo aprendí en una cancha.</p>
+        </div>
+      </article>
+    </div>
+    <p class="stages-note" data-reveal>¿Venís de una cirugía? Con derivación médica, la vuelta al movimiento se arma paso a paso y coordinada con tu equipo de salud. <button class="link" type="button" data-open>Contame tu caso</button></p>
+  </div>
+</section>
+
+<!-- ENCONTRÁ TU AURA: selector de 4 preguntas (CGX) -->
+<section class="finder" id="encontra">
+  <div class="wrap finder-grid">
+    <div class="finder-head">
+      <p class="eyebrow">Encontrá tu AURA</p>
+      <h2 class="h2">Cuatro preguntas y te digo por dónde <em>empezar.</em></h2>
+      <p class="muted finder-meta">Menos de un minuto. Sin registrarte.</p>
+    </div>
+    <div class="finder-box" id="finder">
+      <div class="bars" id="fbars"><i class="on"></i><i></i><i></i><i></i></div>
+      <div class="fq on" data-key="lugar">
+        <p class="label muted">Pregunta 1 de 4</p>
+        <h3>¿Dónde querés entrenar?</h3>
+        <div class="opts two"><button type="button" class="opt" data-v="en el gimnasio">En el gimnasio</button><button type="button" class="opt" data-v="en casa">En casa</button><button type="button" class="opt" data-v="online con vos">Online con Aldana</button><button type="button" class="opt" data-v="presencial con vos">Presencial con Aldana</button></div>
+      </div>
+      <div class="fq" data-key="acomp">
+        <p class="label muted">Pregunta 2 de 4</p>
+        <h3>¿Cuánto acompañamiento buscás?</h3>
+        <div class="opts"><button type="button" class="opt" data-v="solo">Una planificación y avanzar por mi cuenta</button><button type="button" class="opt" data-v="medio">Seguimiento y encuentros periódicos</button><button type="button" class="opt" data-v="total">Entrenar directamente con vos</button></div>
+      </div>
+      <div class="fq" data-key="dias">
+        <p class="label muted">Pregunta 3 de 4</p>
+        <h3>¿Cuántos días podés entrenar?</h3>
+        <div class="opts two"><button type="button" class="opt" data-v="2">2 días</button><button type="button" class="opt" data-v="3">3 días</button><button type="button" class="opt" data-v="4">4 días</button><button type="button" class="opt" data-v="5 o más">5 o más</button></div>
+      </div>
+      <div class="fq" data-key="objetivo">
+        <p class="label muted">Pregunta 4 de 4</p>
+        <h3>¿Qué buscás?</h3>
+        <div class="opts two"><button type="button" class="opt" data-v="ganar fuerza">Fuerza</button><button type="button" class="opt" data-v="ganar masa muscular">Ganar masa muscular</button><button type="button" class="opt" data-v="mejorar mi composición corporal">Composición corporal</button><button type="button" class="opt" data-v="mejorar mi salud y postura">Salud y postura</button><button type="button" class="opt" data-v="volver a moverme">Volver a moverme</button><button type="button" class="opt" data-v="mejorar mi rendimiento deportivo">Rendimiento deportivo</button><button type="button" class="opt" data-v="entrenar en el embarazo o el postparto">Embarazo o postparto</button></div>
+      </div>
+      <div class="fq fres" data-key="res">
+        <p class="label" style="color:var(--violet)">Tu mejor opción es</p>
+        <h3 id="fName">AURA Hybrid</h3>
+        <p class="muted" id="fWhy"></p>
+        <p class="fnote" id="fNote" hidden>Tengo formación específica en embarazo, postparto e hipopresivos.</p>
+        <div class="facts-row"><button class="btn btn-v" type="button" id="fGo">Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><a class="link" id="fSee" href="#plan-hybrid">Ver el plan</a></div>
+      </div>
+      <div class="foot"><button class="back" type="button" id="fBack">← Volver</button><button class="back" type="button" id="fReset" hidden>Empezar de nuevo</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA: trayectoria que se dibuja al scrollear (skiper19) -->
+<section class="how" id="como">
+  <div class="how-pin"><div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal>Cómo funciona</p>
+      <h2 class="h2" data-reveal>Empezar es <em>simple.</em></h2>
+    </div>
+    <div class="how-track" id="howTrack">
+      <svg class="how-line" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true"><path id="howPath" pathLength="1" d="M20 60 C 260 40, 300 260, 420 250 S 620 80, 760 220 S 980 480, 1180 440"/></svg>
+      <ol class="steps" data-rail>
+        <li><span class="sn">01</span><h3>Te conozco</h3><p>Objetivos, experiencia, disponibilidad y contexto. Me contás tu semana real.</p></li>
+        <li><span class="sn">02</span><h3>Planificamos</h3><p>Diseño una planificación alrededor de tu realidad, no al revés.</p></li>
+        <li><span class="sn">03</span><h3>Entrenás</h3><p>Sabés exactamente qué hacer, cómo hacerlo y cómo progresar.</p></li>
+        <li><span class="sn">04</span><h3>Medimos y adaptamos</h3><p>Revisamos el proceso y ajustamos lo que haga falta.</p></li>
+      </ol>
+    </div>
+  </div></div>
+</section>
+
+<!-- VIDEO a sangre con botón que sigue al cursor (skiper67) -->
+<section class="vblock" aria-label="Video de Aldana entrenando">
+  <div class="vframe" id="vframe" role="button" tabindex="0" aria-label="Ver video completo">
+    <video src="media/gym.mp4" poster="media/gym-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
+    <span class="vfollow" id="vfollow">Ver</span>
+    <p class="vcap"><span class="label">Así se entrena en AURA</span><b>Calidad antes que cantidad.</b></p>
+  </div>
+</section>
+<div class="vmodal" id="vmodal" aria-hidden="true"><button class="x" type="button" id="vx" aria-label="Cerrar video">×</button><video id="vfull" playsinline controls preload="none"></video></div>
+
+<!-- EXPERIENCIA GRATUITA (joinform): video cards que llevan al popup, no a un carrito -->
+<section class="free" id="gratis">
+  <div class="wrap">
+    <div class="sec-head two">
+      <div>
+        <p class="eyebrow" data-reveal>Experiencia gratuita</p>
+        <h2 class="h2" data-reveal>¿Todavía no sabés si AURA es para vos? <em>Probalo.</em></h2>
+      </div>
+      <p class="lead" data-reveal style="--d:100ms">La puerta de entrada al método. Sin pagar nada y sin compromiso.</p>
+    </div>
+    <div class="fcards" data-rail>
+      <button class="fcard" type="button" data-open data-plan="Progress" data-intent="rutina" data-reveal>
+        <img src="media/sentadilla.jpg" alt="" loading="lazy">
+        <video src="media/hero.mp4" poster="media/hero-poster.jpg" muted loop playsinline preload="none"></video>
+        <span class="fc-top"><span class="label">Para AURA Progress</span><span class="fc-free">Gratis</span></span>
+        <span class="fc-bot">
+          <b>Rutina base</b>
+          <span class="fc-meta"><span><small>Formato</small>PDF + videos</span><span><small>Duración</small>2 semanas</span><span><small>Nivel</small>Inicial</span></span>
+          <span class="fc-cta">Pedí tu rutina <i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></i></span>
+        </span>
+      </button>
+      <button class="fcard" type="button" data-open data-intent="prueba" data-reveal style="--d:100ms">
+        <img src="media/gym-poster.jpg" alt="" loading="lazy">
+        <video src="media/gym.mp4" poster="media/gym-poster.jpg" muted loop playsinline preload="none"></video>
+        <span class="fc-top"><span class="label">Para Hybrid, Pro y Élite</span><span class="fc-free">Gratis</span></span>
+        <span class="fc-bot">
+          <b>Clase de prueba</b>
+          <span class="fc-meta"><span><small>Formato</small>Online o presencial</span><span><small>Duración</small>60 min</span><span><small>Con</small>Aldana</span></span>
+          <span class="fc-cta">Reservá tu clase <i><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></i></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ: columnas de fotos con parallax (skiper30) + recorrido + formación -->
+<section class="about" id="aldana">
+  <div class="wrap about-grid">
+    <div class="about-txt">
+      <p class="eyebrow" data-reveal>Detrás de AURA</p>
+      <h2 class="h2" data-reveal>Hola, soy <em>Aldana.</em></h2>
+      <p class="first" data-reveal>Mi vínculo con el entrenamiento empezó en una cancha de básquet. Ahí aprendí disciplina, constancia y lo que significa trabajar en equipo.</p>
+      <button class="link about-more" id="aboutMore" type="button" hidden>Leer mi historia</button>
+      <p data-reveal>Esa pasión por el movimiento se volvió profesión: me recibí de Profesora de Educación Física y seguí especializándome en fuerza, hipertrofia, preparación deportiva, embarazo y postparto.</p>
+      <p data-reveal>De todo eso nació AURA: un lugar donde entrenar no es solo verse mejor, sino ganar fuerza, mejorar la salud y construir un cuerpo capaz. Hoy acompaño a cada persona desde su punto de partida, con planificación, seguimiento y un entrenamiento pensado para que avance de verdad.</p>
+      <div class="about-acts" data-reveal><button class="btn btn-k" type="button" data-open>Hablemos <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><a class="link" href="https://www.instagram.com/aura._training" target="_blank" rel="noreferrer">Instagram</a></div>
+    </div>
+    <!-- Columnas de fotos con parallax (skiper30): cada columna se desplaza a otra velocidad y sentido al scrollear -->
+    <div class="gallery" id="gallery" aria-label="Fotos de Aldana: básquet, el día que se recibió y entrenando">
+      <div class="gcol" data-k="0.5"><img src="media/basket-1.jpg" alt="Aldana con la camiseta 23 de Ferro" loading="lazy"><img src="media/recibida-2.jpg" alt="" loading="lazy"><img src="media/retrato.jpg" alt="" loading="lazy"><img src="media/recibida-5.jpg" alt="" loading="lazy"><img src="media/gym-poster.jpg" alt="" loading="lazy"></div>
+      <div class="gcol" data-k="-0.8"><img src="media/recibida-1.jpg" alt="Aldana el día que se recibió de Profesora de Educación Física" loading="lazy"><img src="media/recibida-4.jpg" alt="" loading="lazy"><img src="media/sentadilla.jpg" alt="" loading="lazy"><img src="media/recibida-6.jpg" alt="" loading="lazy"><img src="media/basket-3.jpg" alt="" loading="lazy"></div>
+      <div class="gcol" data-k="0.35"><img src="media/espalda-ig.jpg" alt="" loading="lazy"><img src="media/recibida-3.jpg" alt="" loading="lazy"><img src="media/basket-3.jpg" alt="" loading="lazy"><img src="media/recibida-7.jpg" alt="" loading="lazy"><img src="media/hero-poster.jpg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="edu">
+      <h3 data-reveal>Entrenar también es entender el <em>cuerpo.</em></h3>
+      <ul>
+        <li>Profesora de Educación Física</li><li>Fuerza</li><li>Hipertrofia muscular</li><li>Preparación física deportiva</li>
+        <li>Entrenamiento en el embarazo</li><li>Entrenamiento postparto</li><li>Hipopresivos postparto</li><li>Patrones de movimiento</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESOS: antes/después con manito (skiper50). BORRADOR: no publicar hasta tener fotos reales con permiso. -->
+<section class="proc" id="procesos" data-draft>
+  <div class="wrap proc-grid">
+    <div>
+      <p class="eyebrow" data-reveal>Procesos</p>
+      <h2 class="h2" data-reveal>El cambio se ve. Y se <em>mide.</em></h2>
+      <p class="lead" data-reveal style="--d:100ms">Fuerza, postura, constancia. Procesos reales de personas que entrenan con AURA, compartidos con su permiso.</p>
+      <p class="draft-note">Sección de muestra: se publica cuando lleguen los procesos reales con permiso.</p>
+    </div>
+    <div class="cmp" id="cmp" data-reveal>
+      <div class="cmp-img before"><span>Foto antes</span></div>
+      <div class="cmp-img after" id="cmpAfter"><span>Foto después</span></div>
+      <span class="cmp-tag l">Mes 1</span><span class="cmp-tag r">Mes 6</span>
+      <div class="cmp-bar" id="cmpBar"><span class="cmp-hand"><svg viewBox="0 0 48 48" fill="none"><path d="M17 22V9.5a3 3 0 0 1 6 0V20m0-1.5V7a3 3 0 0 1 6 0v12.5m0-9a3 3 0 0 1 6 0V21m0-6a3 3 0 0 1 6 0v12c0 8-5 15-13 15h-2c-5 0-8-2-11-6l-6-9c-1.5-2.3-.7-5 1.6-5.6 1.6-.4 3.2.3 4.2 1.6L17 27" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+      <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Deslizá para comparar antes y después">
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS: texto de fondo en perspectiva que sube (skiper28) + columnas con parallax (Alive). Ejemplos hasta tener testimonios reales. -->
+<section class="reviews" id="resenas">
+  <div class="crawl" aria-hidden="true"><div class="crawl-in" id="crawl">
+    <p>Mejor hecho</p><p>que perfecto.</p>
+  </div></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-reveal>Personas reales</p>
+      <h2 class="h2" data-reveal>Procesos <em>reales.</em></h2>
+    </div>
+    <div class="rcols" id="rcols" data-rail>
+      <div class="rcol" data-s="-0.08">
+        <figure class="rev"><span class="rtag">Ejemplo</span><blockquote>Entreno dos veces por semana y por primera vez no lo abandoné al mes. El plan entra en mi semana, no al revés.</blockquote><figcaption><i>M</i>Mariana, 38 · AURA Progress</figcaption></figure>
+        <figure class="rev"><span class="rtag">Ejemplo</span><blockquote>Volví después de seis años sin hacer nada. Aldana arrancó desde donde yo estaba, sin hacerme sentir que llegaba tarde.</blockquote><figcaption><i>J</i>Javier, 44 · AURA Hybrid</figcaption></figure>
+      </div>
+      <div class="rcol" data-s="0.1">
+        <figure class="rev"><span class="rtag">Ejemplo</span><blockquote>Entrené todo el embarazo con su plan y a los tres meses del parto ya estaba retomando fuerza, con hipopresivos primero.</blockquote><figcaption><i>L</i>Lucía, 33 · AURA Pro</figcaption></figure>
+        <figure class="rev"><span class="rtag">Ejemplo</span><blockquote>Lo que más valoro es que cuando una semana no puedo, el plan se ajusta. Antes eso era abandonar.</blockquote><figcaption><i>P</i>Pablo, 41 · AURA Progress</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ: responde a las excusas -->
+<section class="faq" id="faq">
+  <div class="wrap faq-grid">
+    <div>
+      <p class="eyebrow" data-reveal>Preguntas</p>
+      <h2 class="h2" data-reveal>Lo que te frena antes de <em>empezar.</em></h2>
+    </div>
+    <div class="faq-list" id="faqList">
+      <details><summary>¿Sirve si solo puedo entrenar dos días?<i></i></summary><p>Sí. Armo la planificación para los días que tenés de verdad, no para los que deberías tener. Dos días sostenidos durante meses valen más que cinco que duran dos semanas.</p></details>
+      <details><summary>No tengo tiempo. ¿Esto es para mí?<i></i></summary><p>Justamente para eso existe AURA. Sesiones con un objetivo claro, que entran en tu semana. Si un día tenés 40 minutos, el plan funciona con 40 minutos.</p></details>
+      <details><summary>¿Qué pasa si nunca entrené?<i></i></summary><p>Arrancamos desde donde estás. Cada ejercicio tiene su video y la progresión es gradual. No necesitás "ponerte en forma" antes de empezar.</p></details>
+      <details><summary>Me cuesta ser constante.<i></i></summary><p>A casi todos. La constancia se construye con un plan que puedas sostener y alguien que lo ajuste cuando la semana se complica.</p></details>
+      <details><summary>¿Necesito ir a un gimnasio?<i></i></summary><p>No. Puedo planificar para el gimnasio, para tu casa con poco material o para entrenar online conmigo.</p></details>
+      <details><summary>¿Qué pasa si una semana no puedo cumplir todo?<i></i></summary><p>Se ajusta. Me avisás y reacomodamos la semana. Un plan que no se adapta a tu vida no sirve.</p></details>
+      <details><summary>“Empiezo el lunes.” “Ahora hace frío.”<i></i></summary><p>Te entiendo. Por eso el primer paso es corto: respondés cuatro preguntas y te digo por dónde empezar. Lo demás lo armamos juntos.</p></details>
+      <details><summary>¿Cada cuánto cambia mi planificación?<i></i></summary><p>Según tu progreso y tu objetivo, en general cada cuatro a seis semanas. Si algo no funciona antes, se cambia antes.</p></details>
+      <details><summary>¿Puedo entrenar durante el embarazo o después del parto?<i></i></summary><p>Sí, con el aval de tu médico o médica. Tengo formación específica en embarazo, postparto e hipopresivos, y adapto el plan a cada etapa.</p></details>
+      <details><summary>¿Qué diferencia hay entre Progress, Hybrid, Pro y Élite?<i></i></summary><p>Cuánto acompañamiento querés. Progress: planificación para entrenar por tu cuenta. Hybrid: planificación más una sesión presencial por semana y videollamada de seguimiento. Pro: sesiones 1:1 por videollamada. Élite: sesiones presenciales 1:1.</p></details>
+      <details><summary>¿Cómo recibo el plan?<i></i></summary><p>En PDF por WhatsApp o por mail, con el video de cada ejercicio.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final" id="empezar">
+  <div class="wrap">
+    <p class="label final-l">Mejor hecho que perfecto</p>
+    <h2 class="final-h">Tu vida no tiene que adaptarse al entrenamiento. Hagamos que el entrenamiento se adapte a <em>vos.</em></h2>
+    <button class="btn btn-w" type="button" data-open>Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot-site">
+  <div class="wrap">
+    <div class="fs-top">
+      <a class="brand" href="#inicio"><img src="media/logo/aura-logo.svg" alt="AURA Training" width="98" height="42"></a>
+      <nav aria-label="Pie"><a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#etapas">Etapas</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a></nav>
+      <div class="fs-contact"><a href="https://www.instagram.com/aura._training" target="_blank" rel="noreferrer">Instagram</a><a href="#" data-todo="url de LinkedIn de Aldana" target="_blank" rel="noreferrer">LinkedIn</a><button type="button" data-open>WhatsApp</button><a href="mailto:auratraining03@gmail.com">auratraining03@gmail.com</a></div>
+    </div>
+    <p class="fs-big" aria-hidden="true">Mejor hecho que perfecto.</p>
+    <div class="fs-bottom"><span>© 2026 AURA Training · Aldana Piñeiro · Entrenamiento personalizado online y presencial</span></div>
+  </div>
+</footer>
+
+<!-- POPUP DE CONTACTO -->
+<div class="veil" id="veil" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="stTitle">
+    <div class="photo"><img src="media/retrato.jpg" alt="" loading="lazy"><span class="label">2 minutos · sin compromiso</span></div>
+    <div class="content">
+      <div class="m-head"><div class="bars" id="bars" aria-hidden="true"></div><span class="label" id="stepN"></span><button class="x" type="button" data-close aria-label="Cerrar">×</button></div>
+      <form id="flow" novalidate>
+        <div class="st" data-key="objetivo">
+          <p class="eyebrow" data-eyebrow>Encontremos tu punto de partida</p>
+          <h3 id="stTitle">¿Qué te gustaría conseguir?</h3>
+          <div class="opts two">
+            <button type="button" class="opt" data-v="ganar fuerza">Ganar fuerza</button>
+            <button type="button" class="opt" data-v="ganar masa muscular">Ganar masa muscular</button>
+            <button type="button" class="opt" data-v="mejorar mi composición corporal">Composición corporal</button>
+            <button type="button" class="opt" data-v="mejorar mi salud y postura">Salud y postura</button>
+            <button type="button" class="opt" data-v="volver a moverme">Volver a moverme</button>
+            <button type="button" class="opt" data-v="mejorar mi rendimiento deportivo">Rendimiento deportivo</button>
+            <button type="button" class="opt" data-v="entrenar en el embarazo o el postparto">Embarazo o postparto</button>
+          </div>
+        </div>
+        <div class="st" data-key="dias">
+          <p class="eyebrow" data-eyebrow>Encontremos tu punto de partida</p>
+          <h3>¿Cuántos días podés entrenar?</h3>
+          <div class="opts two">
+            <button type="button" class="opt" data-v="2">2 días</button>
+            <button type="button" class="opt" data-v="3">3 días</button>
+            <button type="button" class="opt" data-v="4">4 días</button>
+            <button type="button" class="opt" data-v="5 o más">5 o más</button>
+          </div>
+        </div>
+        <div class="st" data-key="lugar">
+          <p class="eyebrow" data-eyebrow>Encontremos tu punto de partida</p>
+          <h3>¿Dónde querés entrenar?</h3>
+          <div class="opts">
+            <button type="button" class="opt" data-v="en el gimnasio">En el gimnasio</button>
+            <button type="button" class="opt" data-v="en casa">En casa</button>
+            <button type="button" class="opt" data-v="online con vos">Online con Aldana</button>
+            <button type="button" class="opt" data-v="presencial con vos">Presencial con Aldana</button>
+          </div>
+        </div>
+        <div class="st" data-key="plan">
+          <p class="eyebrow" data-eyebrow>Encontremos tu punto de partida</p>
+          <h3>¿Qué plan te interesa?</h3>
+          <div class="opts plan-opts">
+            <div class="po"><button type="button" class="opt" data-v="Progress">AURA Progress<small>Planificación para entrenar por tu cuenta</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Progress">i</button>
+              <ul class="po-d"><li>Evaluación de objetivos, nivel y disponibilidad</li><li>Planificación personalizada en PDF</li><li>Video explicativo de cada ejercicio</li><li>Series, repeticiones, cargas y descansos</li><li>Seguimiento y ajustes</li></ul></div>
+            <div class="po"><button type="button" class="opt" data-v="Hybrid">AURA Hybrid<small>Planificación + 1 sesión presencial por semana</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Hybrid">i</button>
+              <ul class="po-d"><li>Todo lo de Progress</li><li>1 sesión presencial semanal de 60 min</li><li>Videollamada de seguimiento</li><li>Registro de cargas y progresiones</li></ul></div>
+            <div class="po"><button type="button" class="opt" data-v="Pro">AURA Pro<small>Entrenamiento online 1:1</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Pro">i</button>
+              <ul class="po-d"><li>Sesiones individuales por videollamada de 60 min</li><li>Corrección técnica en vivo</li><li>Planificación personalizada</li><li>Seguimiento de cargas y progresiones</li></ul></div>
+            <div class="po"><button type="button" class="opt" data-v="Élite">AURA Élite<small>Entrenamiento presencial 1:1</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Élite">i</button>
+              <ul class="po-d"><li>Sesiones presenciales individuales de 60 min</li><li>Corrección técnica constante</li><li>Adaptación en tiempo real</li><li>Fuerza, hipertrofia, salud y rendimiento</li></ul></div>
+            <button type="button" class="opt" data-v="">Todavía no sé, ayudame a elegir</button>
+          </div>
+        </div>
+        <div class="st" data-key="datos">
+          <p class="eyebrow" data-eyebrow>Último paso</p>
+          <h3>¿Cómo te llamás?</h3>
+          <label class="field"><span>Nombre</span><input name="nombre" autocomplete="given-name" required></label>
+          <label class="field"><span>WhatsApp o mail</span><input name="contacto" autocomplete="tel" inputmode="email" required></label>
+          <p class="err" id="err" role="alert"></p>
+          <button class="btn btn-v" type="submit">Listo <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+        </div>
+        <div class="st done" data-key="listo">
+          <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span>
+          <h3 style="margin-top:0" id="doneTitle">Listo.</h3>
+          <p class="sum" id="sum"></p>
+          <a class="btn btn-wa" id="waGo" href="#" target="_blank" rel="noreferrer">Continuar por WhatsApp <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></a>
+          <p class="small">Se abre WhatsApp con tu mensaje ya escrito. Solo tenés que enviarlo.</p>
+        </div>
+      </form>
+      <div class="m-foot" id="foot"><button class="back" type="button" id="back">← Volver</button><span class="m-hint" id="mHint">Elegí una opción</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="sticky-cta" id="stickyCta"><button class="btn btn-v" type="button" data-open>Encontrá tu plan</button></div>
+
+<script src="js/main.js?v=55"></script>
+</body>
+</html>
