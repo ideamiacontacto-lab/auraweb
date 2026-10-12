@@ -700,3 +700,14 @@ html.has-cur .vframe.hov ~ * {}
   .squat-v{height:98%;right:-8%}
   .hero-arc{width:100%;left:12%;top:6%;animation-duration:24s!important}
 }
+
+/* Etapas como franja compacta al final del Método (pedido de Aldana: que la página no sea tan larga) */
+.stages-strip{margin-top:clamp(40px,5vw,72px);padding:22px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;gap:14px 28px;align-items:center}
+.ss-t{font:500 calc(clamp(18px,1.5vw,22px) * var(--ds))/1.2 var(--display);letter-spacing:var(--dls)}
+.stages-strip ul{display:flex;flex-wrap:wrap;gap:8px}
+.stages-strip li{padding:8px 14px;border:1px solid var(--lila-200);border-radius:999px;background:var(--lila-100);font:500 14px/1 var(--sans);white-space:nowrap}
+.method{padding-bottom:clamp(64px,7vw,110px)}
+.method-blocks{padding-bottom:0}
+@media (max-width:1000px){.stages-strip{grid-template-columns:1fr}}
+@media (max-width:760px){.stages-strip{margin:28px 0 0;padding:22px 0 0}.stages-strip li{font-size:13px;padding:7px 12px}}
+@media (min-width:1001px){.how{margin-bottom:0}}

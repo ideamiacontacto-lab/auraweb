@@ -12,9 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Tipografía de titulares a comparar: ?font=grotesk (default) · ?font=josefin · ?font=bogle. Al decidir, se deja una sola. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Josefin+Sans:wght@300;400;600&family=Inter+Tight:wght@500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=55">
-<link rel="stylesheet" href="css/sections.css?v=55">
-<link rel="stylesheet" href="css/mobile.css?v=55">
+<link rel="stylesheet" href="css/styles.css?v=57">
+<link rel="stylesheet" href="css/sections.css?v=57">
+<link rel="stylesheet" href="css/mobile.css?v=57">
 <script>
   (function (d) {
     d.classList.add('js');
@@ -34,7 +34,7 @@
   <div class="wrap">
     <a class="brand" href="#inicio"><img src="media/logo/aura-logo.svg" alt="AURA Training" width="79" height="34"></a>
     <nav class="links" aria-label="Principal">
-      <a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#etapas">Etapas</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a>
+      <a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a>
     </nav>
     <div class="nav-cta">
       <button class="btn btn-k" type="button" data-open>Encontrá tu plan</button>
@@ -44,7 +44,7 @@
 </header>
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menú">
   <div class="top"><a class="brand" href="#inicio"><img src="media/logo/aura-logo.svg" alt="AURA Training" width="70" height="30"></a><button class="close" id="menuClose" type="button">Cerrar ×</button></div>
-  <a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#etapas">Etapas</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a>
+  <a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a>
   <button class="btn btn-v" type="button" data-open>Encontrá tu plan</button>
 </div>
 
@@ -124,14 +124,14 @@
         <div class="body">
           <div class="top"><p class="meter"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b><b></b></i><span class="label">Acompañamiento medio</span></p><span class="tag">Recomendado</span></div>
           <div class="name"><small>AURA</small><h3>Hybrid</h3></div>
-          <p class="what">Planificación + 1 sesión presencial por semana + videollamada de seguimiento.</p>
-          <p class="d">Libertad durante la semana y un encuentro conmigo para corregir y ajustar. La flexibilidad de entrenar por tu cuenta, sin hacerlo en soledad.</p>
-          <ul class="inc"><li>Todo lo de Progress</li><li>1 sesión presencial semanal de 60 min</li><li>Videollamada de seguimiento</li><li>Registro de cargas y progresiones</li><li>Ajustes según tu evolución</li><li>Acompañamiento durante todo el proceso</li></ul>
+          <p class="what">Planificación a distancia + 1 sesión por semana juntos por videollamada.</p>
+          <p class="d">Libertad durante la semana y un encuentro conmigo por videollamada para entrenar, corregir y ajustar. La flexibilidad de entrenar por tu cuenta, sin hacerlo en soledad.</p>
+          <ul class="inc"><li>Todo lo de Progress</li><li>1 sesión semanal juntos por videollamada</li><li>Corrección técnica en vivo</li><li>Registro de cargas y progresiones</li><li>Ajustes según tu evolución</li><li>Acompañamiento durante todo el proceso</li></ul>
           <button class="link more" type="button">Qué incluye +</button>
-          <dl class="facts"><div><dt>Modalidad</dt><dd>Online + presencial</dd></div><div><dt>Encuentros</dt><dd>1 por semana</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
+          <dl class="facts"><div><dt>Modalidad</dt><dd>Online</dd></div><div><dt>Encuentros</dt><dd>1 videollamada por semana</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
           <div class="acts"><button class="btn btn-v" type="button" data-open data-plan="Hybrid">Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><button class="link" type="button" data-open data-plan="Hybrid" data-intent="prueba">Pedí una clase de prueba</button></div>
         </div>
-        <div class="media"><video src="media/hero.mp4" poster="media/hero-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Aldana entrenando al aire libre" style="object-position:50% 70%"></video><span class="cap label">Sesión presencial</span></div>
+        <div class="media"><video src="media/hero.mp4" poster="media/hero-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Aldana entrenando al aire libre" style="object-position:50% 70%"></video><span class="cap label">Videollamada semanal</span></div>
       </article>
 
       <article class="pcard" id="plan-pro" style="--i:2">
@@ -269,77 +269,12 @@
         </article>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ETAPAS: embarazo y otras etapas como adaptación (paneles expandibles, skiper76) -->
-<section class="stages" id="etapas">
-  <div class="wrap">
-    <div class="sec-head two">
-      <div>
-        <p class="eyebrow" data-reveal>Etapas</p>
-        <h2 class="h2" data-reveal>Tu cuerpo cambia. El plan <em>también.</em></h2>
-      </div>
-      <p class="lead" data-reveal style="--d:100ms">Adaptar no es solo acomodar días. Hay momentos en los que entrenar no se frena: se transforma. Para eso me formé.</p>
+    <!-- Etapas (antes era una sección entera): ahora una franja compacta dentro del Método -->
+    <div class="stages-strip" id="etapas" data-reveal>
+      <p class="ss-t">El plan también se adapta a tu etapa</p>
+      <ul><li>Embarazo</li><li>Postparto e hipopresivos</li><li>Volver después de años</li><li>Dolor y postura</li><li>Rendimiento deportivo</li></ul>
+      <button class="link" type="button" data-open>Contame tu caso <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
     </div>
-    <div class="panels" id="panels">
-      <article class="panel feat on" tabindex="0">
-        <p class="pn">01</p>
-        <h3 class="pv">Embarazo</h3>
-        <div class="pc">
-          <p class="label">Especialidad · con aval médico</p>
-          <h3>Entrenar durante el <em>embarazo</em></h3>
-          <p>No es dejar de moverte: es moverte distinto en cada trimestre. Cuidamos la fuerza que vas a necesitar para el parto y para lo que viene después.</p>
-          <div class="blur-wrap at-top" data-blur><div class="blur-list">
-            <ul>
-              <li>Llegar al parto con más fuerza y resistencia.</li>
-              <li>Cuidar la postura y la espalda mientras el cuerpo cambia.</li>
-              <li>Dormir mejor y bajar la tensión del día.</li>
-              <li>Preparar la zona media y el suelo pélvico para el postparto.</li>
-              <li>Sostener el hábito, para que volver sea más fácil.</li>
-              <li>Ajustes trimestre a trimestre, siempre con el ok de tu médico o médica.</li>
-            </ul>
-          </div></div><p class="blur-hint">Deslizá la lista</p>
-        </div>
-      </article>
-      <article class="panel" tabindex="0">
-        <p class="pn">02</p>
-        <h3 class="pv">Postparto e hipopresivos</h3>
-        <div class="pc">
-          <p class="label">Especialidad</p>
-          <h3>La vuelta se <em>planifica</em></h3>
-          <p>Primero zona media y suelo pélvico con hipopresivos aplicados al postparto. Después, fuerza progresiva. Sin apuro y sin saltear etapas.</p>
-        </div>
-      </article>
-      <article class="panel" tabindex="0">
-        <p class="pn">03</p>
-        <h3 class="pv">Volver después de años</h3>
-        <div class="pc">
-          <p class="label">Volver a moverte</p>
-          <h3>Desde donde estás <em>hoy</em></h3>
-          <p>Empezar de cero o volver después de mucho tiempo, sin que la primera semana te deje afuera. La progresión se arma con lo que hoy podés.</p>
-        </div>
-      </article>
-      <article class="panel" tabindex="0">
-        <p class="pn">04</p>
-        <h3 class="pv">Dolor y postura</h3>
-        <div class="pc">
-          <p class="label">Salud</p>
-          <h3>Fuerza para la vida <em>diaria</em></h3>
-          <p>Espalda, cadera, hombros. Trabajo por patrones de movimiento para que el cuerpo rinda fuera del gimnasio, en tu trabajo y con tus hijos.</p>
-        </div>
-      </article>
-      <article class="panel" tabindex="0">
-        <p class="pn">05</p>
-        <h3 class="pv">Rendimiento deportivo</h3>
-        <div class="pc">
-          <p class="label">Deporte</p>
-          <h3>Fuerza para tu <em>deporte</em></h3>
-          <p>Potencia, prevención de lesiones y una planificación que respeta tu calendario de entrenamientos y partidos. Lo aprendí en una cancha.</p>
-        </div>
-      </article>
-    </div>
-    <p class="stages-note" data-reveal>¿Venís de una cirugía? Con derivación médica, la vuelta al movimiento se arma paso a paso y coordinada con tu equipo de salud. <button class="link" type="button" data-open>Contame tu caso</button></p>
   </div>
 </section>
 
@@ -366,7 +301,7 @@
       <div class="fq" data-key="dias">
         <p class="label muted">Pregunta 3 de 4</p>
         <h3>¿Cuántos días podés entrenar?</h3>
-        <div class="opts two"><button type="button" class="opt" data-v="2">2 días</button><button type="button" class="opt" data-v="3">3 días</button><button type="button" class="opt" data-v="4">4 días</button><button type="button" class="opt" data-v="5 o más">5 o más</button></div>
+        <div class="opts two"><button type="button" class="opt" data-v="2">2 días</button><button type="button" class="opt" data-v="3">3 días</button><button type="button" class="opt" data-v="4">4 días</button><button type="button" class="opt" data-v="5">5 días</button></div>
       </div>
       <div class="fq" data-key="objetivo">
         <p class="label muted">Pregunta 4 de 4</p>
@@ -403,16 +338,6 @@
     </div>
   </div></div>
 </section>
-
-<!-- VIDEO a sangre con botón que sigue al cursor (skiper67) -->
-<section class="vblock" aria-label="Video de Aldana entrenando">
-  <div class="vframe" id="vframe" role="button" tabindex="0" aria-label="Ver video completo">
-    <video src="media/gym.mp4" poster="media/gym-poster.jpg" muted loop playsinline preload="none" data-autoplay></video>
-    <span class="vfollow" id="vfollow">Ver</span>
-    <p class="vcap"><span class="label">Así se entrena en AURA</span><b>Calidad antes que cantidad.</b></p>
-  </div>
-</section>
-<div class="vmodal" id="vmodal" aria-hidden="true"><button class="x" type="button" id="vx" aria-label="Cerrar video">×</button><video id="vfull" playsinline controls preload="none"></video></div>
 
 <!-- EXPERIENCIA GRATUITA (joinform): video cards que llevan al popup, no a un carrito -->
 <section class="free" id="gratis">
@@ -479,25 +404,6 @@
   </div>
 </section>
 
-<!-- PROCESOS: antes/después con manito (skiper50). BORRADOR: no publicar hasta tener fotos reales con permiso. -->
-<section class="proc" id="procesos" data-draft>
-  <div class="wrap proc-grid">
-    <div>
-      <p class="eyebrow" data-reveal>Procesos</p>
-      <h2 class="h2" data-reveal>El cambio se ve. Y se <em>mide.</em></h2>
-      <p class="lead" data-reveal style="--d:100ms">Fuerza, postura, constancia. Procesos reales de personas que entrenan con AURA, compartidos con su permiso.</p>
-      <p class="draft-note">Sección de muestra: se publica cuando lleguen los procesos reales con permiso.</p>
-    </div>
-    <div class="cmp" id="cmp" data-reveal>
-      <div class="cmp-img before"><span>Foto antes</span></div>
-      <div class="cmp-img after" id="cmpAfter"><span>Foto después</span></div>
-      <span class="cmp-tag l">Mes 1</span><span class="cmp-tag r">Mes 6</span>
-      <div class="cmp-bar" id="cmpBar"><span class="cmp-hand"><svg viewBox="0 0 48 48" fill="none"><path d="M17 22V9.5a3 3 0 0 1 6 0V20m0-1.5V7a3 3 0 0 1 6 0v12.5m0-9a3 3 0 0 1 6 0V21m0-6a3 3 0 0 1 6 0v12c0 8-5 15-13 15h-2c-5 0-8-2-11-6l-6-9c-1.5-2.3-.7-5 1.6-5.6 1.6-.4 3.2.3 4.2 1.6L17 27" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-      <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Deslizá para comparar antes y después">
-    </div>
-  </div>
-</section>
-
 <!-- RESEÑAS: texto de fondo en perspectiva que sube (skiper28) + columnas con parallax (Alive). Ejemplos hasta tener testimonios reales. -->
 <section class="reviews" id="resenas">
   <div class="crawl" aria-hidden="true"><div class="crawl-in" id="crawl">
@@ -538,7 +444,7 @@
       <details><summary>“Empiezo el lunes.” “Ahora hace frío.”<i></i></summary><p>Te entiendo. Por eso el primer paso es corto: respondés cuatro preguntas y te digo por dónde empezar. Lo demás lo armamos juntos.</p></details>
       <details><summary>¿Cada cuánto cambia mi planificación?<i></i></summary><p>Según tu progreso y tu objetivo, en general cada cuatro a seis semanas. Si algo no funciona antes, se cambia antes.</p></details>
       <details><summary>¿Puedo entrenar durante el embarazo o después del parto?<i></i></summary><p>Sí, con el aval de tu médico o médica. Tengo formación específica en embarazo, postparto e hipopresivos, y adapto el plan a cada etapa.</p></details>
-      <details><summary>¿Qué diferencia hay entre Progress, Hybrid, Pro y Élite?<i></i></summary><p>Cuánto acompañamiento querés. Progress: planificación para entrenar por tu cuenta. Hybrid: planificación más una sesión presencial por semana y videollamada de seguimiento. Pro: sesiones 1:1 por videollamada. Élite: sesiones presenciales 1:1.</p></details>
+      <details><summary>¿Qué diferencia hay entre Progress, Hybrid, Pro y Élite?<i></i></summary><p>Cuánto acompañamiento querés. Progress: planificación para entrenar por tu cuenta. Hybrid: planificación a distancia más una sesión por semana juntos por videollamada. Pro: todas las sesiones 1:1 por videollamada. Élite: sesiones presenciales 1:1.</p></details>
       <details><summary>¿Cómo recibo el plan?<i></i></summary><p>En PDF por WhatsApp o por mail, con el video de cada ejercicio.</p></details>
     </div>
   </div>
@@ -559,7 +465,7 @@
   <div class="wrap">
     <div class="fs-top">
       <a class="brand" href="#inicio"><img src="media/logo/aura-logo.svg" alt="AURA Training" width="98" height="42"></a>
-      <nav aria-label="Pie"><a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#etapas">Etapas</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a></nav>
+      <nav aria-label="Pie"><a href="#metodo">Método</a><a href="#planes">Planes</a><a href="#aldana">Sobre mí</a><a href="#faq">FAQ</a></nav>
       <div class="fs-contact"><a href="https://www.instagram.com/aura._training" target="_blank" rel="noreferrer">Instagram</a><a href="#" data-todo="url de LinkedIn de Aldana" target="_blank" rel="noreferrer">LinkedIn</a><button type="button" data-open>WhatsApp</button><a href="mailto:auratraining03@gmail.com">auratraining03@gmail.com</a></div>
     </div>
     <p class="fs-big" aria-hidden="true">Mejor hecho que perfecto.</p>
@@ -594,7 +500,7 @@
             <button type="button" class="opt" data-v="2">2 días</button>
             <button type="button" class="opt" data-v="3">3 días</button>
             <button type="button" class="opt" data-v="4">4 días</button>
-            <button type="button" class="opt" data-v="5 o más">5 o más</button>
+            <button type="button" class="opt" data-v="5">5 días</button>
           </div>
         </div>
         <div class="st" data-key="lugar">
@@ -613,8 +519,8 @@
           <div class="opts plan-opts">
             <div class="po"><button type="button" class="opt" data-v="Progress">AURA Progress<small>Planificación para entrenar por tu cuenta</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Progress">i</button>
               <ul class="po-d"><li>Evaluación de objetivos, nivel y disponibilidad</li><li>Planificación personalizada en PDF</li><li>Video explicativo de cada ejercicio</li><li>Series, repeticiones, cargas y descansos</li><li>Seguimiento y ajustes</li></ul></div>
-            <div class="po"><button type="button" class="opt" data-v="Hybrid">AURA Hybrid<small>Planificación + 1 sesión presencial por semana</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Hybrid">i</button>
-              <ul class="po-d"><li>Todo lo de Progress</li><li>1 sesión presencial semanal de 60 min</li><li>Videollamada de seguimiento</li><li>Registro de cargas y progresiones</li></ul></div>
+            <div class="po"><button type="button" class="opt" data-v="Hybrid">AURA Hybrid<small>Planificación + 1 videollamada por semana</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Hybrid">i</button>
+              <ul class="po-d"><li>Todo lo de Progress</li><li>1 sesión semanal juntos por videollamada</li><li>Corrección técnica en vivo</li><li>Registro de cargas y progresiones</li></ul></div>
             <div class="po"><button type="button" class="opt" data-v="Pro">AURA Pro<small>Entrenamiento online 1:1</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Pro">i</button>
               <ul class="po-d"><li>Sesiones individuales por videollamada de 60 min</li><li>Corrección técnica en vivo</li><li>Planificación personalizada</li><li>Seguimiento de cargas y progresiones</li></ul></div>
             <div class="po"><button type="button" class="opt" data-v="Élite">AURA Élite<small>Entrenamiento presencial 1:1</small></button><button type="button" class="po-i" aria-expanded="false" aria-label="Qué incluye AURA Élite">i</button>
@@ -645,6 +551,6 @@
 
 <div class="sticky-cta" id="stickyCta"><button class="btn btn-v" type="button" data-open>Encontrá tu plan</button></div>
 
-<script src="js/main.js?v=55"></script>
+<script src="js/main.js?v=57"></script>
 </body>
 </html>
