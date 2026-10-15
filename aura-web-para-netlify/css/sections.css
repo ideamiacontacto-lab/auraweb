@@ -711,3 +711,11 @@ html.has-cur .vframe.hov ~ * {}
 @media (max-width:1000px){.stages-strip{grid-template-columns:1fr}}
 @media (max-width:760px){.stages-strip{margin:28px 0 0;padding:22px 0 0}.stages-strip li{font-size:13px;padding:7px 12px}}
 @media (min-width:1001px){.how{margin-bottom:0}}
+
+/* franja de etapas más visible (Aldana: "acá se pierde"): bloque lila propio, título grande */
+.stages-strip{margin-top:clamp(48px,6vw,88px);padding:clamp(24px,3vw,36px) clamp(22px,3vw,40px);border:0;border-radius:18px;background:var(--lila-100);grid-template-columns:minmax(0,1fr) auto;row-gap:18px}
+.ss-t{grid-column:1/-1;font-size:calc(clamp(26px,2.6vw,38px) * var(--ds));line-height:1.05}
+.stages-strip ul{gap:10px}
+.stages-strip li{background:#fff;border-color:transparent;font-size:15px;padding:10px 16px}
+.stages-strip .link{justify-self:end}
+@media (max-width:760px){.stages-strip{grid-template-columns:1fr;padding:22px 18px;margin-top:32px}.ss-t{font-size:calc(24px * var(--ds))}.stages-strip .link{justify-self:start}}
