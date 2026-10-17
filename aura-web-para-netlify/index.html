@@ -12,9 +12,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Tipografía de titulares a comparar: ?font=grotesk (default) · ?font=josefin · ?font=bogle. Al decidir, se deja una sola. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Josefin+Sans:wght@300;400;600&family=Inter+Tight:wght@500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=62">
-<link rel="stylesheet" href="css/sections.css?v=62">
-<link rel="stylesheet" href="css/mobile.css?v=62">
+<link rel="stylesheet" href="css/styles.css?v=64">
+<link rel="stylesheet" href="css/sections.css?v=64">
+<link rel="stylesheet" href="css/mobile.css?v=64">
 <script>
   (function (d) {
     d.classList.add('js');
@@ -22,7 +22,10 @@
     d.dataset.font = ['josefin', 'bogle'].indexOf(f) > -1 ? f : 'grotesk';
     // prueba de fondo: ?fondo=lila (pedido de Aldana, 17/10)
     if (new URLSearchParams(location.search).get('fondo') === 'lila') d.dataset.fondo = 'lila';
-    if (new URLSearchParams(location.search).get("hero") === "blanco") d.dataset.hero = "blanco";
+    // opciones de diseño del inicio para Aldana: A violeta, B negro, C blanco (la anterior)
+    var h = (new URLSearchParams(location.search).get("hero") || "").toLowerCase();
+    if (["a", "b", "c"].indexOf(h) < 0) { try { h = localStorage.getItem("auraHero") || "a"; } catch (e) { h = "a"; } }
+    d.dataset.hero = ["a", "b", "c"].indexOf(h) > -1 ? h : "a";
   })(document.documentElement);
 </script>
 </head>
@@ -472,6 +475,8 @@
 
 </main>
 
+<div class="ab" id="abSwitch" role="group" aria-label="Opciones de diseño"><span>Diseño</span><button type="button" data-h="a">A</button><button type="button" data-h="b">B</button><button type="button" data-h="c">C</button></div>
+
 <footer class="foot-site">
   <div class="wrap">
     <div class="fs-top">
@@ -562,6 +567,6 @@
 
 <div class="sticky-cta" id="stickyCta"><button class="btn btn-v" type="button" data-open>Encontrá tu plan</button></div>
 
-<script src="js/main.js?v=62"></script>
+<script src="js/main.js?v=64"></script>
 </body>
 </html>

@@ -193,7 +193,7 @@
       const [r, g, b] = bgUnder(e.target);
       const violetish = Math.abs(r - 106) < 40 && Math.abs(g - 69) < 40 && Math.abs(b - 216) < 45;
       const dark = 0.299 * r + 0.587 * g + 0.114 * b < 90;
-      cur.classList.toggle('inv', violetish || dark || !!e.target.closest('.hero-card,.fcard,.vframe,.pcard.el,.final'));
+      cur.classList.toggle('inv', violetish || dark || !!e.target.closest('.hero-card,.fcard,.vframe,.pcard.el,.final') || (document.documentElement.dataset.hero !== 'c' && innerWidth > 760 && !!e.target.closest('.hero-copy')));
     });
     addEventListener('pointerdown', () => cur.classList.add('down'));
     addEventListener('pointerup', () => cur.classList.remove('down'));
@@ -818,4 +818,21 @@
     addEventListener('scroll', stickyCheck, { passive: true });
     stickyCheck();
   }
+})();
+
+/* Selector A/B/C del diseño del inicio (para que Aldana compare; se saca cuando elija) */
+(() => {
+  const box = document.getElementById('abSwitch');
+  if (!box) return;
+  const root = document.documentElement;
+  const mark = () => box.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.h === root.dataset.hero)));
+  box.addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-h]');
+    if (!b) return;
+    root.dataset.hero = b.dataset.h;
+    try { localStorage.setItem('auraHero', b.dataset.h); } catch (err) {}
+    const u = new URL(location.href); u.searchParams.set('hero', b.dataset.h); history.replaceState(null, '', u);
+    mark();
+  });
+  mark();
 })();

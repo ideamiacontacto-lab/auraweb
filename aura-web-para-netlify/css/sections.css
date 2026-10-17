@@ -745,18 +745,46 @@ html[data-fondo="lila"] .ident{background:#ebe2fc}
 html[data-fondo="lila"] .nav.solid{background:rgba(245,240,254,.92)}
 
 /* ===== Hero con color (audio de Aldana 17/10: "el primer pantallazo no impacta").
-   Solo escritorio (en el celu el hero ya es la foto a sangre). Versión anterior en blanco: ?hero=blanco ===== */
+   Solo escritorio (en el celu el hero ya es la foto a sangre). Opciones A/B/C con el selector flotante (?hero=a|b|c) ===== */
 @media (min-width:761px){
   /* bloque violeta a la izquierda (texto) y Aldana sobre blanco: el recorte de los cuadros no se nota */
-  html:not([data-hero="blanco"]) .hero{background:linear-gradient(90deg,#5a37c8 0,#6a45d8 var(--hv,47%),#fff var(--hv,47%))}
-  html:not([data-hero="blanco"]) .hero .eyebrow{color:var(--lila-200)!important}
-  html:not([data-hero="blanco"]) .hero .eyebrow::before{background:var(--lila-200)}
-  html:not([data-hero="blanco"]) .hero h1{color:#fff}
-  html:not([data-hero="blanco"]) .hero h1 .acc.box{color:var(--violet)!important}
-  html:not([data-hero="blanco"]) .hero h1 .acc.box::before{background:#fff}
-  html:not([data-hero="blanco"]) .hero .sub{color:rgba(255,255,255,.86)}
-  html:not([data-hero="blanco"]) .hero-actions .btn-v{background:#fff;color:var(--violet)}
-  html:not([data-hero="blanco"]) .hero-actions .btn-v svg{background:var(--violet);color:#fff}
-  html:not([data-hero="blanco"]) .hero-actions .btn-v:hover{background:var(--lila-100)}
-  html:not([data-hero="blanco"]) .hero-actions .link{color:#fff;border-color:rgba(255,255,255,.6)}
+  html:not([data-hero="c"]) .hero{--hv:56%;background:linear-gradient(90deg,#5a37c8 0,#6a45d8 var(--hv),#fff var(--hv))}
+  html:not([data-hero="c"]) .hero-cut{transform:translateX(12%)}
+  html:not([data-hero="c"]) .hero .eyebrow{color:var(--lila-200)!important}
+  html:not([data-hero="c"]) .hero .eyebrow::before{background:var(--lila-200)}
+  html:not([data-hero="c"]) .hero h1{color:#fff}
+  html:not([data-hero="c"]) .hero h1 .acc.box{color:var(--violet)!important}
+  html:not([data-hero="c"]) .hero h1 .acc.box::before{background:#fff}
+  html:not([data-hero="c"]) .hero .sub{color:rgba(255,255,255,.86)}
+  html:not([data-hero="c"]) .hero-actions .btn-v{background:#fff;color:var(--violet)}
+  html:not([data-hero="c"]) .hero-actions .btn-v svg{background:var(--violet);color:#fff}
+  html:not([data-hero="c"]) .hero-actions .btn-v:hover{background:var(--lila-100)}
+  html:not([data-hero="c"]) .hero-actions .link{color:#fff;border-color:rgba(255,255,255,.6)}
 }
+
+/* Opción B: negro + blanco (el violeta queda solo de acento) */
+@media (min-width:761px){
+  html[data-hero="b"] .hero{background:linear-gradient(90deg,#0f0d14 0,#1b1724 var(--hv),#fff var(--hv))}
+  html[data-hero="b"] .hero h1 .acc.box{color:#fff!important}
+  html[data-hero="b"] .hero h1 .acc.box::before{background:var(--violet)}
+  html[data-hero="b"] .hero .sub{color:rgba(255,255,255,.78)}
+  html[data-hero="b"] .hero-actions .btn-v{background:var(--violet);color:#fff}
+  html[data-hero="b"] .hero-actions .btn-v svg{background:rgba(255,255,255,.22)}
+  html[data-hero="b"] .hero-actions .btn-v:hover{background:var(--violet-deep)}
+}
+html[data-hero="b"] .finder,html[data-hero="b"] .final{background:#15121c}
+html[data-hero="b"] .final-h em,html[data-hero="b"] .final-l{color:var(--lila-400)}
+
+/* Selector de opciones de diseño (solo para mostrarle a Aldana; se saca al decidir) */
+.ab{position:fixed;left:16px;bottom:16px;z-index:90;display:flex;align-items:center;gap:4px;padding:5px 5px 5px 14px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 28px rgba(21,18,28,.14);font:600 12.5px/1 var(--sans);color:var(--graphite)}
+.ab span{margin-right:6px}
+.ab button{width:34px;height:34px;border:0;border-radius:50%;background:transparent;font:700 13px/1 var(--sans);color:var(--ink);cursor:pointer}
+.ab button:hover{background:var(--lila-100)}
+.ab button[aria-pressed="true"]{background:var(--violet);color:#fff}
+
+/* "Esto es para vos si" pasa a ser lo principal; la frase del gym queda como bajada */
+.ident-head .ident-tag{display:flex;padding:0;border:0;background:none;border-radius:0;font:var(--dw) calc(clamp(44px,5vw,84px) * var(--ds))/1 var(--display);letter-spacing:var(--dls);text-transform:none;color:var(--violet);gap:.22em;margin-bottom:clamp(18px,2vw,28px)}
+.ident-head .ident-tag{align-items:flex-start}
+.ident-head .ident-tag::before{width:.36em;height:.36em;flex:none;margin-top:.32em}
+.ident-head .h2{font-size:calc(clamp(26px,2.4vw,38px) * var(--ds));line-height:1.12;color:var(--ink)}
+@media (max-width:760px){.ident-head .ident-tag{font-size:calc(36px * var(--ds));padding:0}.ident-head .h2{font-size:calc(22px * var(--ds))}}
