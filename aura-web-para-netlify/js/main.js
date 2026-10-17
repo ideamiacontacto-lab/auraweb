@@ -740,28 +740,70 @@
     const imgs = [];
     let target = 0, cur = 0, shown = -1, raf = 0;
     const ready = (i) => imgs[i] && imgs[i].complete && imgs[i].naturalWidth;
-    // recorte del fondo blanco: cada cuadro se procesa una vez (lo casi blanco pasa a transparente, con borde suave)
-    const cuts = [];
+    // recorte del fondo blanco: cada cuadro se procesa una vez por modo (lo casi blanco pasa a transparente, con borde suave).
+    // En la opción B (fondo negro) además se limpian los bordes claros y la sombra de los pies, que sobre negro se notan.
+    const cuts = { light: [], dark: [] };
+    const darkMode = () => document.documentElement.dataset.hero === 'b';
     const cut = (i) => {
-      if (cuts[i]) return cuts[i];
+      const mode = darkMode() ? 'dark' : 'light';
+      if (cuts[mode][i]) return cuts[mode][i];
       const c = document.createElement('canvas'); c.width = c.height = S;
       const g = c.getContext('2d', { willReadFrequently: true });
       g.drawImage(imgs[i], 0, 0, S, S);
       const px = g.getImageData(0, 0, S, S), d = px.data;
       // solo el blanco conectado con el borde es fondo (así el top y las zapatillas blancas no se vuelven transparentes)
       const dist = (p) => 255 - Math.min(d[p * 4], d[p * 4 + 1], d[p * 4 + 2]);
+      const sat = (p) => Math.max(d[p * 4], d[p * 4 + 1], d[p * 4 + 2]) - Math.min(d[p * 4], d[p * 4 + 1], d[p * 4 + 2]);
       const bg = new Uint8Array(S * S), stack = [];
       const push = (p) => { if (!bg[p] && dist(p) < 12) { bg[p] = 1; stack.push(p); } }; // fondo ≈ 4-7; el top blanco arranca en ~17
       for (let x = 0; x < S; x++) { push(x); push((S - 1) * S + x); }
       for (let y = 0; y < S; y++) { push(y * S); push(y * S + S - 1); }
-      while (stack.length) {
-        const p = stack.pop(), x = p % S;
-        if (x > 0) push(p - 1); if (x < S - 1) push(p + 1);
-        if (p >= S) push(p - S); if (p < S * (S - 1)) push(p + S);
+      const flood = (ok) => {
+        while (stack.length) {
+          const p = stack.pop(), x = p % S;
+          if (x > 0) ok(p - 1); if (x < S - 1) ok(p + 1);
+          if (p >= S) ok(p - S); if (p < S * (S - 1)) ok(p + S);
+        }
+      };
+      flood(push);
+      if (mode === 'light') {
+        for (let p = 0; p < S * S; p++) if (bg[p]) { const t = dist(p); d[p * 4 + 3] = t <= 7 ? 0 : Math.round(((t - 7) / 5) * 255); }
+      } else {
+        // sombra de los pies: gris claro sin color pegado al fondo, abajo. Las zapatillas son blanco puro (dist < 12) y nunca se tocan
+        const floor = S * Math.floor(S * 0.7);
+        for (let p = floor; p < S * S; p++) if (bg[p]) stack.push(p);
+        flood((p) => { if (!bg[p] && p >= floor && dist(p) >= 12 && dist(p) < 40 && sat(p) < 18) { bg[p] = 2; stack.push(p); } });
+        // puntitos blancos sueltos dentro de la sombra (tramado del GIF): manchas chicas → afuera; las zapatillas son manchas grandes
+        const seen = new Uint8Array(S * S);
+        for (let s0 = floor; s0 < S * S; s0++) {
+          if (bg[s0] || seen[s0] || dist(s0) >= 12) continue;
+          const comp = [s0]; seen[s0] = 1;
+          for (let k = 0; k < comp.length; k++) {
+            const p = comp[k], x = p % S;
+            [x > 0 ? p - 1 : -1, x < S - 1 ? p + 1 : -1, p - S, p + S].forEach((q) => { if (q >= floor && q < S * S && !seen[q] && !bg[q] && dist(q) < 12) { seen[q] = 1; comp.push(q); } });
+          }
+          if (comp.length < 80) comp.forEach((p) => { bg[p] = 2; });
+        }
+        for (let p = 0; p < S * S; p++) if (bg[p]) d[p * 4 + 3] = 0;
+        // borde: los 3 px del cuerpo pegados al fondo vienen mezclados con blanco → se separa el blanco (alpha según qué tan claro es)
+        let ring = []; for (let p = 0; p < S * S; p++) if (!bg[p]) { const x = p % S; if ((x > 0 && bg[p - 1]) || (x < S - 1 && bg[p + 1]) || (p >= S && bg[p - S]) || (p < S * (S - 1) && bg[p + S])) ring.push(p); }
+        const done = new Uint8Array(S * S);
+        for (let k = 0; k < 3; k++) {
+          const next = [];
+          for (const p of ring) {
+            if (done[p] || bg[p]) continue; done[p] = 1;
+            const t = dist(p), a = Math.min(1, Math.max(0, (t - 8) / 70));
+            if (a < 1 && t >= 12) { // lo blanco puro pegado a la sombra es zapatilla, no borde
+              for (let ch = 0; ch < 3; ch++) d[p * 4 + ch] = a > 0 ? Math.max(0, Math.round(255 - (255 - d[p * 4 + ch]) / a)) : 0;
+              d[p * 4 + 3] = Math.round(a * 255);
+            }
+            const x = p % S; [x > 0 ? p - 1 : -1, x < S - 1 ? p + 1 : -1, p - S, p + S].forEach((q) => { if (q >= 0 && q < S * S && !bg[q] && !done[q]) next.push(q); });
+          }
+          ring = next;
+        }
       }
-      for (let p = 0; p < S * S; p++) if (bg[p]) { const t = dist(p); d[p * 4 + 3] = t <= 7 ? 0 : Math.round(((t - 7) / 5) * 255); }
       g.putImageData(px, 0, 0);
-      return (cuts[i] = c);
+      return (cuts[mode][i] = c);
     };
     const paint = () => {
       raf = 0;
@@ -796,6 +838,7 @@
     addEventListener('scroll', onScrollSquat, { passive: true });
     addEventListener('resize', onScrollSquat);
     onScrollSquat();
+    addEventListener("herochange", () => { shown = -1; cur = target; paint(); }); // el recorte cambia según la opción A/B/C
   }
   // AURA de fondo: sube inclinada a medida que scrolleás (como el texto detrás de las reseñas)
   if (heroCut && heroSec && !reduce) scrollFx.push(() => {
@@ -830,6 +873,7 @@
     const b = e.target.closest('button[data-h]');
     if (!b) return;
     root.dataset.hero = b.dataset.h;
+    dispatchEvent(new Event('herochange'));
     try { localStorage.setItem('auraHero', b.dataset.h); } catch (err) {}
     const u = new URL(location.href); u.searchParams.set('hero', b.dataset.h); history.replaceState(null, '', u);
     mark();

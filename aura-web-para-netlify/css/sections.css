@@ -764,7 +764,16 @@ html[data-fondo="lila"] .nav.solid{background:rgba(245,240,254,.92)}
 
 /* Opción B: negro + blanco (el violeta queda solo de acento) */
 @media (min-width:761px){
-  html[data-hero="b"] .hero{background:linear-gradient(90deg,#0f0d14 0,#1b1724 var(--hv),#fff var(--hv))}
+  html[data-hero="b"] .hero{background:#121016}
+  html[data-hero="b"] .hero-arc circle{stroke:var(--lila-400)}
+  html[data-hero="b"] .hero-cut::before{color:rgba(201,184,247,.13)}
+  html[data-hero="b"] .squat-v .squat-poster{opacity:0!important}
+  html[data-hero="b"] .nav:not(.solid){background:#121016!important;box-shadow:none}
+  html[data-hero="b"] .nav.solid .wrap{background:rgba(24,21,30,.9);box-shadow:0 10px 30px -10px rgba(0,0,0,.4),inset 0 0 0 1px rgba(255,255,255,.08)}
+  html[data-hero="b"] .nav .brand img{filter:invert(1)}
+  html[data-hero="b"] .nav .links a{color:#fff}
+  html[data-hero="b"] .nav .btn-k{background:var(--lila-200);color:var(--ink)}
+  html[data-hero="b"] .hero-actions .link{color:#fff}
   html[data-hero="b"] .hero h1 .acc.box{color:#fff!important}
   html[data-hero="b"] .hero h1 .acc.box::before{background:var(--violet)}
   html[data-hero="b"] .hero .sub{color:rgba(255,255,255,.78)}
@@ -788,3 +797,12 @@ html[data-hero="b"] .final-h em,html[data-hero="b"] .final-l{color:var(--lila-40
 .ident-head .ident-tag::before{width:.36em;height:.36em;flex:none;margin-top:.32em}
 .ident-head .h2{font-size:calc(clamp(26px,2.4vw,38px) * var(--ds));line-height:1.12;color:var(--ink)}
 @media (max-width:760px){.ident-head .ident-tag{font-size:calc(36px * var(--ds));padding:0}.ident-head .h2{font-size:calc(22px * var(--ds))}}
+
+/* Hero más ancho en pantallas grandes: menos aire a los costados, titular más grande (A, B y C) */
+@media (min-width:1200px){
+  .hero-grid{max-width:none!important;padding-inline:clamp(32px,5.5vw,120px)!important}
+  .hero h1{font-size:calc(min(12.2cqw,118px) * var(--ds))}
+  .hero .sub{font-size:clamp(18px,1.3vw,24px)}
+}
+/* B: los pies se funden en el negro (las zapatillas blancas no se pueden separar del fondo blanco original) */
+@media (min-width:761px){html[data-hero="b"] .squat-v canvas{-webkit-mask-image:linear-gradient(180deg,#000 70%,transparent 85%);mask-image:linear-gradient(180deg,#000 70%,transparent 85%)}}
