@@ -743,3 +743,20 @@ html[data-fondo="lila"]{--white:#f5f0fe}
 html[data-fondo="lila"] .hero,html[data-fondo="lila"] .reviews{background:var(--white)}
 html[data-fondo="lila"] .ident{background:#ebe2fc}
 html[data-fondo="lila"] .nav.solid{background:rgba(245,240,254,.92)}
+
+/* ===== Hero con color (audio de Aldana 17/10: "el primer pantallazo no impacta").
+   Solo escritorio (en el celu el hero ya es la foto a sangre). Versión anterior en blanco: ?hero=blanco ===== */
+@media (min-width:761px){
+  /* bloque violeta a la izquierda (texto) y Aldana sobre blanco: el recorte de los cuadros no se nota */
+  html:not([data-hero="blanco"]) .hero{background:linear-gradient(90deg,#5a37c8 0,#6a45d8 var(--hv,47%),#fff var(--hv,47%))}
+  html:not([data-hero="blanco"]) .hero .eyebrow{color:var(--lila-200)!important}
+  html:not([data-hero="blanco"]) .hero .eyebrow::before{background:var(--lila-200)}
+  html:not([data-hero="blanco"]) .hero h1{color:#fff}
+  html:not([data-hero="blanco"]) .hero h1 .acc.box{color:var(--violet)!important}
+  html:not([data-hero="blanco"]) .hero h1 .acc.box::before{background:#fff}
+  html:not([data-hero="blanco"]) .hero .sub{color:rgba(255,255,255,.86)}
+  html:not([data-hero="blanco"]) .hero-actions .btn-v{background:#fff;color:var(--violet)}
+  html:not([data-hero="blanco"]) .hero-actions .btn-v svg{background:var(--violet);color:#fff}
+  html:not([data-hero="blanco"]) .hero-actions .btn-v:hover{background:var(--lila-100)}
+  html:not([data-hero="blanco"]) .hero-actions .link{color:#fff;border-color:rgba(255,255,255,.6)}
+}
