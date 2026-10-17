@@ -12,14 +12,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Tipografía de titulares a comparar: ?font=grotesk (default) · ?font=josefin · ?font=bogle. Al decidir, se deja una sola. -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Bogle&family=Josefin+Sans:wght@300;400;600&family=Inter+Tight:wght@500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=58">
-<link rel="stylesheet" href="css/sections.css?v=58">
-<link rel="stylesheet" href="css/mobile.css?v=58">
+<link rel="stylesheet" href="css/styles.css?v=60">
+<link rel="stylesheet" href="css/sections.css?v=60">
+<link rel="stylesheet" href="css/mobile.css?v=60">
 <script>
   (function (d) {
     d.classList.add('js');
     var f = new URLSearchParams(location.search).get('font');
     d.dataset.font = ['josefin', 'bogle'].indexOf(f) > -1 ? f : 'grotesk';
+    // prueba de fondo: ?fondo=lila (pedido de Aldana, 17/10)
+    if (new URLSearchParams(location.search).get('fondo') === 'lila') d.dataset.fondo = 'lila';
   })(document.documentElement);
 </script>
 </head>
@@ -156,7 +158,7 @@
           <p class="d">La experiencia más personalizada: atención completa en cada sesión, adaptación en tiempo real y un plan diseñado alrededor tuyo.</p>
           <ul class="inc"><li>Sesiones presenciales individuales de 60 min</li><li>Corrección técnica constante</li><li>Adaptación en tiempo real</li><li>Fuerza, hipertrofia, salud y rendimiento</li><li>Seguimiento de cargas y repeticiones</li><li>Acompañamiento cercano</li></ul>
           <button class="link more" type="button">Qué incluye +</button>
-          <dl class="facts"><div><dt>Modalidad</dt><dd>Presencial 1:1</dd></div><div><dt>Sesiones</dt><dd>60 min</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
+          <dl class="facts"><div><dt>Modalidad</dt><dd>Presencial 1:1</dd></div><div><dt>Sesiones</dt><dd>60 min en vivo</dd></div><div><dt>Valor</dt><dd>A consultar</dd></div></dl>
           <div class="acts"><button class="btn btn-w" type="button" data-open data-plan="Élite">Quiero empezar <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button><button class="link" type="button" data-open data-plan="Élite" data-intent="prueba">Pedí una clase de prueba</button></div>
         </div>
         <div class="media"><video src="media/gym.mp4" poster="media/gym-poster.jpg" muted loop playsinline preload="none" data-autoplay aria-label="Aldana entrenando con carga en el gimnasio" style="object-position:50% 20%"></video><span class="cap label">Presencial</span></div>
@@ -208,7 +210,7 @@
 <section class="ident" id="identificacion">
   <div class="wrap ident-grid">
     <div class="ident-head">
-      <p class="eyebrow">Esto es para vos si</p>
+      <p class="eyebrow ident-tag">Esto es para vos si</p>
       <h2 class="h2">No necesitás que tu vida gire alrededor del <em>gym.</em></h2>
     </div>
     <div class="ident-wrap" data-blur><ol class="ident-list" id="identList">
@@ -301,7 +303,7 @@
       <div class="fq" data-key="dias">
         <p class="label muted">Pregunta 3 de 4</p>
         <h3>¿Cuántos días podés entrenar?</h3>
-        <div class="opts two"><button type="button" class="opt" data-v="2">2 días</button><button type="button" class="opt" data-v="3">3 días</button><button type="button" class="opt" data-v="4">4 días</button><button type="button" class="opt" data-v="5">5 días</button></div>
+        <div class="opts two"><button type="button" class="opt" data-v="1">1 día</button><button type="button" class="opt" data-v="2">2 días</button><button type="button" class="opt" data-v="3">3 días</button><button type="button" class="opt" data-v="4">4 días</button></div>
       </div>
       <div class="fq" data-key="objetivo">
         <p class="label muted">Pregunta 4 de 4</p>
@@ -395,10 +397,16 @@
   </div>
   <div class="wrap">
     <div class="edu">
-      <h3 data-reveal>Entrenar también es entender el <em>cuerpo.</em></h3>
-      <ul>
-        <li>Profesora de Educación Física</li><li>Fuerza</li><li>Hipertrofia muscular</li><li>Preparación física deportiva</li>
-        <li>Entrenamiento en el embarazo</li><li>Entrenamiento postparto</li><li>Hipopresivos postparto</li><li>Patrones de movimiento</li>
+      <div class="edu-txt" data-reveal>
+        <h3>Entrenar también es entender el <em>cuerpo.</em></h3>
+        <p class="edu-tags">Fuerza · Salud · Rendimiento</p>
+        <p>Como profesora de Educación Física, te acompaño a mejorar tu fuerza, desarrollar masa muscular y alcanzar tus objetivos con una planificación personalizada, basada en el movimiento y el conocimiento del cuerpo.</p>
+      </div>
+      <ul class="edu-list">
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 8v8M3.5 10v4M18 8v8M20.5 10v4M6 12h12"/></svg></i><b>Fuerza y desarrollo muscular</b><span>Hipertrofia, fuerza y recomposición corporal.</span></li>
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></i><b>Rendimiento y preparación física</b><span>Mejorá tus capacidades físicas y tu desempeño deportivo.</span></li>
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg></i><b>Entrenamiento durante el embarazo y postparto</b><span>Acompañamiento adaptado a cada etapa, con las consideraciones y autorizaciones profesionales correspondientes.</span></li>
+        <li><i aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><path d="M5 9.5h14M12 9.5V15M12 15l-3.5 6M12 15l3.5 6"/></svg></i><b>Hipopresivos y reeducación del movimiento</b><span>Trabajo de la zona media, respiración y patrones de movimiento.</span></li>
       </ul>
     </div>
   </div>
@@ -444,8 +452,8 @@
       <details><summary>¿Necesito ir a un gimnasio?<i></i></summary><p>No. Puedo planificar para el gimnasio, para tu casa con poco material o para entrenar online conmigo.</p></details>
       <details><summary>¿Qué pasa si una semana no puedo cumplir todo?<i></i></summary><p>Se ajusta. Me avisás y reacomodamos la semana. Un plan que no se adapta a tu vida no sirve.</p></details>
       <details><summary>“Empiezo el lunes.” “Ahora hace frío.”<i></i></summary><p>Te entiendo. Por eso el primer paso es corto: respondés cuatro preguntas y te digo por dónde empezar. Lo demás lo armamos juntos.</p></details>
-      <details><summary>¿Cada cuánto cambia mi planificación?<i></i></summary><p>Según tu progreso y tu objetivo, en general cada cuatro a seis semanas. Si algo no funciona antes, se cambia antes.</p></details>
-      <details><summary>¿Puedo entrenar durante el embarazo o después del parto?<i></i></summary><p>Sí, con el aval de tu médico o médica. Tengo formación específica en embarazo, postparto e hipopresivos, y adapto el plan a cada etapa.</p></details>
+      <details><summary>¿Cada cuánto cambia mi planificación?<i></i></summary><p>Según tu progreso y tu objetivo, en general cada cuatro o, como máximo, cinco semanas. Si algo no funciona antes, se cambia antes.</p></details>
+      <details><summary>¿Puedo entrenar durante el embarazo o después del parto?<i></i></summary><p>Sí, con el aval de tu médico. Tengo formación específica en embarazo, postparto e hipopresivos, y adapto el plan a cada etapa.</p></details>
       <details><summary>¿Qué diferencia hay entre Progress, Hybrid, Pro y Élite?<i></i></summary><p>Cuánto acompañamiento querés. Progress: planificación para entrenar por tu cuenta. Hybrid: planificación a distancia más una sesión por semana juntos por videollamada. Pro: todas las sesiones 1:1 por videollamada. Élite: sesiones presenciales 1:1.</p></details>
       <details><summary>¿Cómo recibo el plan?<i></i></summary><p>En PDF por WhatsApp o por mail, con el video de cada ejercicio.</p></details>
     </div>
@@ -499,10 +507,10 @@
           <p class="eyebrow" data-eyebrow>Encontremos tu punto de partida</p>
           <h3>¿Cuántos días podés entrenar?</h3>
           <div class="opts two">
+            <button type="button" class="opt" data-v="1">1 día</button>
             <button type="button" class="opt" data-v="2">2 días</button>
             <button type="button" class="opt" data-v="3">3 días</button>
             <button type="button" class="opt" data-v="4">4 días</button>
-            <button type="button" class="opt" data-v="5">5 días</button>
           </div>
         </div>
         <div class="st" data-key="lugar">
@@ -553,6 +561,6 @@
 
 <div class="sticky-cta" id="stickyCta"><button class="btn btn-v" type="button" data-open>Encontrá tu plan</button></div>
 
-<script src="js/main.js?v=58"></script>
+<script src="js/main.js?v=60"></script>
 </body>
 </html>

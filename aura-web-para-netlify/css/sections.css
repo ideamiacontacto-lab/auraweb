@@ -719,3 +719,27 @@ html.has-cur .vframe.hov ~ * {}
 .stages-strip li{background:#fff;border-color:transparent;font-size:15px;padding:10px 16px}
 .stages-strip .link{justify-self:end}
 @media (max-width:760px){.stages-strip{grid-template-columns:1fr;padding:22px 18px;margin-top:32px}.ss-t{font-size:calc(24px * var(--ds))}.stages-strip .link{justify-self:start}}
+
+/* ===== Feedback Aldana 17/10 ===== */
+/* "Esto es para vos si": más grande y en violeta, que se lea antes que el título */
+.ident-head .ident-tag{font-size:clamp(16px,1.35vw,20px);font-weight:600;letter-spacing:-.005em;color:var(--violet);padding:9px 16px 9px 14px;background:#fff;border:1px solid var(--lila-200);border-radius:999px;margin-bottom:26px}
+.ident-head .ident-tag::before{background:var(--violet)}
+
+/* "Entrenar también es entender el cuerpo": texto + 4 áreas con descripción */
+.edu{grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:start}
+.edu-txt h3{margin:0}
+.edu-tags{margin:14px 0 18px;font:600 13px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
+.edu-txt p:not(.edu-tags){margin:0;max-width:44ch;color:var(--graphite);font-size:clamp(16px,1.15vw,18px);line-height:1.6}
+.edu ul.edu-list{display:grid;grid-template-columns:1fr 1fr;gap:0 32px;border-top:0}
+.edu ul.edu-list li{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:16px;row-gap:6px;align-content:start;padding:22px 0;border-bottom:1px solid var(--line);font:400 15.5px/1.5 var(--sans);text-transform:none;letter-spacing:0;color:var(--graphite)}
+.edu ul.edu-list li:nth-child(-n+2){border-top:1px solid var(--line)}
+.edu-list i{grid-row:span 2;width:44px;height:44px;border-radius:12px;background:var(--lila-100);display:grid;place-items:center}
+.edu-list svg{width:22px;height:22px;fill:none;stroke:var(--violet);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.edu-list b{font:var(--dw) calc(clamp(18px,1.45vw,22px) * var(--ds))/1.15 var(--display);letter-spacing:var(--dls);color:var(--ink)}
+@media (max-width:1000px){.edu ul.edu-list{grid-template-columns:1fr}.edu ul.edu-list li:nth-child(2){border-top:0}}
+
+/* Prueba de fondo lila claro: ?fondo=lila */
+html[data-fondo="lila"]{--white:#f5f0fe}
+html[data-fondo="lila"] .hero,html[data-fondo="lila"] .reviews{background:var(--white)}
+html[data-fondo="lila"] .ident{background:#ebe2fc}
+html[data-fondo="lila"] .nav.solid{background:rgba(245,240,254,.92)}

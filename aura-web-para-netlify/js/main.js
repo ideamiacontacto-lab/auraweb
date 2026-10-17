@@ -367,7 +367,7 @@
     const nombre = form.nombre.value.trim(), contacto = form.contacto.value.trim();
     if (!nombre || !contacto) { $('#err').textContent = 'Completá tu nombre y un WhatsApp o mail para que te pueda responder.'; return; }
     state.nombre = nombre; state.contacto = contacto;
-    const dias = `${state.dias} días`; // máximo 5: es lo que Aldana da y recomienda
+    const dias = state.dias === "1" ? "1 día" : `${state.dias} días`; // de 1 a 4: Aldana no recomienda 5
     let msg = `Hola Aldana, soy ${nombre}. Busco ${state.objetivo}, puedo entrenar ${dias} ${state.lugar}`;
     msg += state.plan ? ` y me interesa AURA ${state.plan}.` : ' y quiero que me ayudes a elegir el plan.';
     if (state.intent === 'prueba') msg += ' Me gustaría hacer la clase de prueba.';
